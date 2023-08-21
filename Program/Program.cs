@@ -1,3 +1,6 @@
+using Microsoft.Extensions.DependencyInjection;
+using System.Diagnostics.PerformanceData;
+
 namespace OTS2023
 {
   internal static class Program
@@ -8,10 +11,20 @@ namespace OTS2023
     [STAThread]
     static void Main()
     {
-      // To customize application configuration such as set high DPI settings or default font,
-      // see https://aka.ms/applicationconfiguration.
+      var services = new ServiceCollection();
+      services.AddWindowsFormsBlazorWebView();
+      services.AddBlazorWebViewDeveloperTools();
+      services.AddSingleton<CounterData>();
+
+      serviceProvider = services.BuildServiceProvider();
+
+      Application.EnableVisualStyles();
+      Application.SetCompatibleTextRenderingDefault(false);
+
       ApplicationConfiguration.Initialize();
       Application.Run(new Form1());
     }
+
+    public static ServiceProvider? serviceProvider;
   }
 }

@@ -28,12 +28,30 @@
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Text = "Form1";
+      blazorWebView1 = new Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView();
+      SuspendLayout();
+      // 
+      // blazorWebView1
+      // 
+      blazorWebView1.Location = new Point(117, 82);
+      blazorWebView1.Name = "blazorWebView1";
+      blazorWebView1.Size = new Size(75, 23);
+      blazorWebView1.TabIndex = 0;
+      blazorWebView1.Text = "blazorWebView1";
+      // 
+      // Form1
+      // 
+      AutoScaleDimensions = new SizeF(7F, 15F);
+      AutoScaleMode = AutoScaleMode.Font;
+      ClientSize = new Size(800, 450);
+      Controls.Add(blazorWebView1);
+      Name = "Form1";
+      Text = "Form1";
+      ResumeLayout(false);
     }
 
     #endregion
+
+    private Microsoft.AspNetCore.Components.WebView.WindowsForms.BlazorWebView blazorWebView1;
   }
 }
