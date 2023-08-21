@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using OTS2023.Messages;
 using System.Diagnostics.PerformanceData;
 
 namespace OTS2023
@@ -9,12 +10,13 @@ namespace OTS2023
     ///  The main entry point for the application.
     /// </summary>
     [STAThread]
-    static void Main()
+    private static void Main()
     {
       var services = new ServiceCollection();
       services.AddWindowsFormsBlazorWebView();
       services.AddBlazorWebViewDeveloperTools();
       services.AddSingleton<CounterData>();
+      services.AddSingleton<MessageBroker>();
 
       serviceProvider = services.BuildServiceProvider();
 
@@ -22,7 +24,7 @@ namespace OTS2023
       Application.SetCompatibleTextRenderingDefault(false);
 
       ApplicationConfiguration.Initialize();
-      Application.Run(new Form1());
+      Application.Run(new MainForm());
     }
 
     public static ServiceProvider? serviceProvider;

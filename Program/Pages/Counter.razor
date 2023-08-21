@@ -1,5 +1,7 @@
 ﻿@page "/counter"
 
+@inject MessageBroker messageBroker
+
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
@@ -9,10 +11,18 @@
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
-    private int currentCount = 0;
+  private int currentCount = 0;
 
-    private void IncrementCount()
-    {
-        currentCount++;
-    }
+  protected override void OnAfterRender(bool firstRender)
+  {
+    base.OnAfterRender(firstRender);
+
+    messageBroker.NotifyNewCaption("Counter");
+  }
+
+  private void IncrementCount()
+  {
+    currentCount++;
+  }
 }
+
