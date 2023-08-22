@@ -2,11 +2,15 @@
 
 <div class="page">
   <div id="keyCatcher" tabindex="-1" style="outline: none;" @onkeydown="e => KeyDown(e)">
-    <div class="sidebar">
-      <NavMenu />
-    </div>
-
     <main>
+      <h6>OTS2023 - Blazor Hybrid - Prtenjak</h6>
+
+      <hr />
+
+      <h1 class="text-center">@caption</h1>
+
+      <hr />
+
       <article class="content px-4">
         @Body
       </article>
@@ -15,46 +19,89 @@
 </div>
 
 @code {
-  private Dictionary<string, Action> keys2Action = new();
+  private Dictionary<string, Action>? keys2Action;
+  private string caption = "";
+
+  private string[] pages = new string[] {
+    "/",
+    "counter"
+  };
+  private int pageIndex = 0;
 
   protected override void OnInitialized()
   {
     base.OnInitialized();
 
+    messageBroker.CaptionChangedEvent += CaptionChanged;
+    messageBroker.PrevPageEvent += MoveToPreviousPage;
+    messageBroker.NextPageEvent += MoveToNextPage;
+
     keys2Action = new Dictionary<string, Action>()
       {
-        { "ArrowRight", doNext },
-        { "PageUp", doNext },
-        { "swipeleft", doNext },
+        { "ArrowRight", moveNext },
+        { "PageUp", moveNext },
+        { "swipeleft", moveNext },
 
-        { "ArrowLeft", doPrev },
-        { "PageDown", doPrev },
-        { "swiperight", doPrev },
+        { "ArrowLeft", movePrevious },
+        { "PageDown", movePrevious },
+        { "swiperight", movePrevious },
 
         /*{ "AudioVolumeUp", zoomIn },
         { "AudioVolumeDown", zoomOut },*/
       };
   }
 
-  public void doPrev()
+  public void Dispose()
   {
-    messageBroker.NotifyPrevPage();
+    messageBroker.CaptionChangedEvent -= CaptionChanged;
+    messageBroker.PrevPageEvent -= MoveToPreviousPage;
+    messageBroker.NextPageEvent -= MoveToNextPage;
   }
 
-  public void doNext()
+  private void CaptionChanged(object? sender, PageCaptionArgs pca)
   {
-    messageBroker.NotifyNextPage();
+    caption = pca.Caption;
+    StateHasChanged();
   }
+
+  private void MoveToPreviousPage(object? sender, EventArgs args)
+  {
+    DecrementPage();
+    StateHasChanged();
+    ShowPage();
+  }
+
+  private void MoveToNextPage(object? sender, EventArgs args)
+  {
+    IncrementPage();
+    StateHasChanged();
+    ShowPage();
+  }
+
+  private void IncrementPage() =>
+    pageIndex = (pageIndex >= pages.Length - 1)
+      ? pages.Length - 1 : pageIndex + 1;
+
+  private void DecrementPage() =>
+    pageIndex = (pageIndex > 0)
+      ? pageIndex - 1 : 0;
+
+  private void ShowPage() =>
+    navManager.NavigateTo(pages[pageIndex]);
+
+  public void movePrevious() => MoveToPreviousPage(null, new EventArgs());
+
+  public void moveNext() => MoveToNextPage(null, new EventArgs());
 
   private void KeyDown(KeyboardEventArgs e)
   {
     _ = JS.InvokeVoidAsync("console.log", "key press");
-    excuteInputAction(e.Key);
+    executeInputAction(e.Key);
   }
 
-  private void excuteInputAction(string action)
+  private void executeInputAction(string action)
   {
-    if (keys2Action.ContainsKey(action))
-      keys2Action[action]();
+    if (keys2Action!.ContainsKey(action))
+      keys2Action![action]();
   }
 }
