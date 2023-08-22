@@ -1,0 +1,30 @@
+﻿<div class="d-flex flex-wrap">
+	<div class="me-3">
+		<h5>VUE</h5>
+		<pre class="animate__animated animate__backInLeft code-box">
+			<code class="hljs language-javascript">@((MarkupString)highlightVue)</code>
+		</pre>		
+	</div>
+	<div>
+		<h5>Blazor</h5>
+		<pre class="animate__animated animate__backInRight code-box">
+			<code class="hljs language-cs">@((MarkupString)highlightBlazor)</code>
+		</pre>		
+	</div>
+</div>
+
+
+@code {
+	[Parameter] public string VueCode { get; set; } = string.Empty;
+	[Parameter] public string BlazorCode { get; set; } = string.Empty;
+
+	private string highlightVue = string.Empty;
+	private string highlightBlazor = string.Empty;
+
+	protected async override Task OnParametersSetAsync()
+	{
+		await base.OnParametersSetAsync();
+		highlightVue = await JS.HighlightString(VueCode, "javascript");
+		highlightBlazor = await JS.HighlightString(BlazorCode, "cs");
+	}
+}

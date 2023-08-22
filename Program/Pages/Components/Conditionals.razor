@@ -1,0 +1,17 @@
+﻿<div @onclick="ToogleMsg">
+  @if (seen)
+  {
+    <span>Now you see me</span>
+  }
+  else
+  {
+    <span>Click Me!</span>
+  }
+</div>
+
+@code {
+  private bool seen = false;
+
+  private void ToogleMsg() 
+    => seen = !seen;
+}

@@ -1,0 +1,12 @@
+﻿<CompareCode VueCode="@comparerSlideDTO.VueCode" BlazorCode="@comparerSlideDTO.BlazorCode" />
+<hr />
+
+<p class="code-result">
+  <DynamicComponent Type="@comparerSlideDTO.BlazorComponent" />
+</p>
+
+@code {
+  [Parameter] public SlideDTO? SlideData { get; set; } = null;
+
+	private ComparerSlideDTO comparerSlideDTO => (ComparerSlideDTO)SlideData!;
+}

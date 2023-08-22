@@ -1,0 +1,9 @@
+﻿<div class="animate__animated animate__zoomIn">
+  @((MarkupString)basicSlideDTO.Content)
+</div>
+
+@code {
+  [Parameter] public SlideDTO? SlideData { get; set; }
+
+	private BasicSlideDTO basicSlideDTO => (BasicSlideDTO)SlideData!;
+}

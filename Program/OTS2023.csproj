@@ -12,4 +12,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.WindowsForms" Version="7.0.92" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="vue_blazor_compare.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

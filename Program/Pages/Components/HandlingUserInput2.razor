@@ -1,0 +1,14 @@
+﻿<div>
+  <p>@message</p>
+  <input @bind-value="message">
+</div>
+
+<hr />
+<div>
+  <p>@message</p>
+  <input @bind-value="message" @bind-value:event="oninput">
+</div>
+
+@code {
+  private string message = "Hello Blazor!";
+}

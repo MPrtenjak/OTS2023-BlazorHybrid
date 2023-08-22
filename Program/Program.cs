@@ -4,29 +4,29 @@ using System.Diagnostics.PerformanceData;
 
 namespace OTS2023
 {
-  internal static class Program
-  {
-    /// <summary>
-    ///  The main entry point for the application.
-    /// </summary>
-    [STAThread]
-    private static void Main()
+    internal static class Program
     {
-      var services = new ServiceCollection();
-      services.AddWindowsFormsBlazorWebView();
-      services.AddBlazorWebViewDeveloperTools();
-      services.AddSingleton<CounterData>();
-      services.AddSingleton<MessageBroker>();
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        private static void Main()
+        {
+            var services = new ServiceCollection();
+            services.AddWindowsFormsBlazorWebView();
+            services.AddBlazorWebViewDeveloperTools();
+            services.AddSingleton<CounterData>();
+            services.AddSingleton<MessageBroker>();
 
-      serviceProvider = services.BuildServiceProvider();
+            serviceProvider = services.BuildServiceProvider();
 
-      Application.EnableVisualStyles();
-      Application.SetCompatibleTextRenderingDefault(false);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-      ApplicationConfiguration.Initialize();
-      Application.Run(new MainForm());
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainForm());
+        }
+
+        public static ServiceProvider? serviceProvider;
     }
-
-    public static ServiceProvider? serviceProvider;
-  }
 }

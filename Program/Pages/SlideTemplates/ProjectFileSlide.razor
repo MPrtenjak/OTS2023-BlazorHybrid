@@ -1,0 +1,12 @@
+﻿@((MarkupString)ProjectFileSlideData.Content)
+
+@code {
+	[Parameter] public SlideDTO? SlideData { get; set; } = null;
+
+	private ProjectFileSlideDTO ProjectFileSlideData => (ProjectFileSlideDTO)SlideData!;
+
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		await JS.DoHighlight();
+	}
+}

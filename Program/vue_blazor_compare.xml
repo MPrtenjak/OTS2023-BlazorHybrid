@@ -1,0 +1,650 @@
+﻿<Slides>
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Uvod</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<ul>
+  <li>OTS 2019</li>
+  <ul>
+    <li>Kako razvijati v VUE/NUXT, če si navajen/a objektnih jezikov, kot so C++, C# ali JAVA?</li>
+    <li>Zaključki:</li>
+    <ul>
+      <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS</li>
+      <li>Potrebno se je naučiti JavaScript</li>
+      <li>In šele sedaj pride na vrsto Vue</li>
+      <li><b>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack)</b></li>
+    </ul>
+  </ul>
+  <li style="font-size: 120%">Prezentacija je še vedno dosegljiva na <a href="https://mnet.si/ots2019">https://mnet.si/ots2019</a>
+<ul>
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>OTS 2022 - BLAZOR</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<ul>
+  <li>Da razčistimo</li>  
+  <ul>
+    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
+     <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
+    <li>In šele sedaj pride na vrsto Vue - <b>več znaš, več veljaš</b></li>
+    <li>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack) - <b>tega pa ni več, smo v znanem okolju!</b></li>
+  </ul>  
+  <li>Blazor</li>
+  <ul>
+    <li>Microsoftova tehnologija</li>
+    <li>Razvoj v C#/.Net Core programskem jeziku (odprtokoden)</li>
+    <li>Prevod v WASM (odprtokoden)</li>
+  </ul>
+  <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2022">https://mnet.si/ots2022</a>  
+<ul>
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Blazor, kaj dobimo v škatlici?</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<ul>
+  <li><a href="">Osnovna Blazor aplikacija</a></li>
+  <li class="my-4"><a href="https://v2.vuejs.org/v2/guide/" target="_blank">Osnovno poglavje razvojnega okolja VUE</a></li>
+</ul>
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Declarative Rendering I</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>
+  <div>
+    {{ message }}
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        message: 'Hello Vue!'
+      }
+    }
+  }
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div>
+  @message
+</div>
+
+@code {
+  private string message = "Hello Blazor!";
+}
+]]>
+    </BlazorCode>
+    <BlazorComponent>DeclarativeRendering</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Declarative Rendering II</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>
+  <div>
+    <span v-bind:title="message">
+      Hover your mouse over me for a few seconds
+      to see my dynamically bound title!
+    </span>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        message: 'You loaded this page on '
+          + new Date().toLocaleString()
+      }
+    }
+  }
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div>
+  <span title="@message">
+    Hover your mouse over me for a few seconds
+    to see my dynamically bound title!
+  </span>
+</div>
+
+@code {
+  private string message = $"You loaded this page on 
+    {DateTime.Now.ToLongDateString()} 
+    {DateTime.Now.ToLongTimeString()}";
+}
+]]>
+    </BlazorCode>
+    <BlazorComponent>DeclarativeRendering1</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Conditionals</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>
+  <div @click="ToogleMessage">
+    <span v-if="seen">Now you see me</span>
+    <span v-else>Click Me!</span>
+  </div>
+</template>
+
+<script>
+  var app = new Vue({
+    el: "#app",
+    data: {
+      seen: true
+    },
+    methods: {
+      ToogleMessage() {
+        this.seen = !this.seen;
+      }
+    }
+  });
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div @onclick="ToogleMsg">
+  @if (seen)
+  {
+    <span>Now you see me</span>
+  }
+  else
+  {
+    <span>Click Me!</span>
+  }
+</div>
+
+@code {
+  private bool seen = false;
+
+  private void ToogleMsg() 
+    => seen = !seen;
+}
+]]>
+    </BlazorCode>
+    <BlazorComponent>Conditionals</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Loops</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>      
+  <div>
+    <ol>
+      <li v-for="todo in todos">
+        {{ todo.text }}
+      </li>
+    </ol>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        todos: [
+          { text: 'Learn JavaScript' },
+          { text: 'Learn Vue' },
+          { text: 'Build something awesome' }
+        ]
+      }
+    }
+  }
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div>
+  <ol>
+    @foreach(var item in todos)
+    {
+      <li>@item</li>
+    }
+  </ol>
+</div>
+
+@code {
+  private string[] todos = { 
+    "Learn C#", 
+    "Learn .NET Core", 
+    "Build something awesome" 
+  };
+}
+
+]]>
+    </BlazorCode>
+    <BlazorComponent>Loops</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Handling User Input I</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>      
+  <div>
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">
+      Reverse Message
+    </button>
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        message: 'Hello Vue.js!'
+      }
+    },
+    methods: {
+      reverseMessage: function () {
+        this.message = this.message.split('')
+                           .reverse().join('')
+      }
+    }    
+  }
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div>
+  <p>@message</p>
+  <button @onclick="ReverseMessage">
+    Reverse Message
+  </button>
+</div>
+
+@code {
+  private string message = "Hello Blazor!";
+
+  public void ReverseMessage()
+  {
+    message = new string(message.ToCharArray()
+                        .Reverse().ToArray());
+  }
+}
+]]>
+    </BlazorCode>
+    <BlazorComponent>HandlingUserInput1</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Handling User Input II</Caption>
+    <Type>Comparer</Type>
+    <VueCode>
+      <![CDATA[
+<template>      
+  <div>
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+</template>
+
+<script>
+  export default {
+    data () {
+      return {
+        message: 'Hello Vue.js!'
+      }
+    }
+  }
+</script>
+]]>
+    </VueCode>
+    <BlazorCode>
+      <![CDATA[
+<div>
+  <p>@message</p>
+  <!-- dogodek onblur! -->
+  <input @bind-value="message">
+</div>
+
+<hr />
+<div>
+  <p>@message</p>
+  <input @bind-value="message" 
+         @bind-value:event="oninput"
+  >
+</div>
+
+@code {
+  private string message = "Hello Blazor!";
+}
+]]>
+    </BlazorCode>
+    <BlazorComponent>HandlingUserInput2</BlazorComponent>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Konkretna aplikacija</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<ul>
+  <li>Tako smo prišli do konca osnovnega tečaja VUE in s tem tudi do primerjave VUE in Blazor</li>
+  <li>Zdaj pa si poglejmo, kako izgleda ta konkretna aplikacija, ta prezentacija:
+    <ul>
+      <li>Seveda razvita v BLAZOR</li>
+      <li>Je PWA (Progressive Web Apps), kar pomeni, da jo lahko tudi instalirate v vaš operacijski sistem, tako namizni, kot mobilni</li>
+      <li>Pregled projekta (struktura, mape)</li>
+      <li>Izgled mape s prevedeno kodo</li>
+      <li>Izvedba na Apache strežniku</li>
+      <li>Pregled kode, ki jo dobimo v osnovnem projektu Blazor
+        <ul>
+          <li><code>Program.cs, App.razor, _Imports.razor</code></li>
+          <li><code>(mapi) Shared in Pages</code></li>
+        </ul>
+      </li>
+      <li>Prikaz "zanimivih" delov te konkretne aplikacije (prezentacije)
+        <ul>
+          <li>Programska koda za prikaz prosojnic <code>CompareVueBlazor.razor</code></li>
+          <li>Besedilo prosojnic - XML datoteka <code>vue_blazor_compare.xml</code></li>
+          <li><code>SlideDTO</code> razred in branje datoteke</li>
+          <li>Dinamični URL-ji</li>  
+          <li>Postavitev strani</li>
+          <li>Dinamični prikaz elementov</li>
+          <li>JavaScript
+          <ul>
+            <li>Uporaba JavaScript knjižnic</li>
+            <li>Klicanje JavaScript kode iz Blazor aplikacije</li>
+            <li>Klicanje Blazor aplikacije iz JavaScritpt</li>
+          </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Blazor projekt</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<table style="border-top: 2px dashed green; width: 100%;">
+  <tr>
+    <td style="padding: 15px;">
+      <img src="imgs/projekt.png" />
+    </td>
+    <td style="border-left: 2px dashed green; padding: 15px;">
+      <ul>
+        <li><b>wwwroot</b> - datoteke, ki se prepišejo na spletni strežnik ne da bi jih .NET core prevajal (HTML, CSS, JavaScript...)</li>
+        <li><b>OTS</b> - datoteke potrebne za ta konkreten projekt
+          <ul>
+            <li><b>/apache</b> - primer <b>.htaccess</b> datoteke, da aplikacija teče v Apache strežniku</li>
+            <li><b>/Helpers</b> - funkcije za povezavo <b>JavaScript &lt;--&gt; Blazor</b></li>
+            <li><b>/Layouts</b> - osnovna postavitev spletne strani za prikaz prosojnic</li>
+            <li><b>/Pages</b> - komponente ki sestavljajo posamezne prosojnice
+              <ol>
+                <li><b>Components</b> - Blazor komponente, ki izvajajo kodo iz VUE primerjave</li>
+                <li><b>Data</b> - Podatkovni model za prosojnice</li>
+                <li><b>SlideTemplates</b> - Kalupi za prikaz različnih tipov prosojnic</li>
+                <li><b>SlidePage.razor</b> - Kalup za prikaz prosojnice</li>
+              </ol>
+            </li>
+          </ul>
+        </li>
+        <li><b>ostalo</b> - datoteke, ki jih pripravi že Blazor
+      </ul>
+    </tb>
+  </tr>
+</table>  
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Blazor projekt - prevedena verzija</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<table style="border-top: 2px dashed green; width: 100%;">
+  <tr>
+    <td style="padding: 15px;">
+      <img src="imgs/distribucija1.png" />
+    </td>
+    <td style="border-left: 2px dashed green; padding: 15px;">
+      <ul>
+        <li>Preveden projekt je sestavljen iz <b>wwwroot mape</b>, ki jo <b>poznamo iz IIS</b></li>
+        <li>in pa nastavitve datoteke <b>web.config</b>, ki je zopet pripravljena za IIS</li>
+      </ul>
+    </tb>
+  </tr>
+</table>  
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Blazor projekt - prevedena verzija, podmapa <b>wwwroot</b></Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<table style="border-top: 2px dashed green; width: 100%;">
+  <tr>
+    <td style="padding: 15px;">
+      <img src="imgs/distribucija2.png" />
+    </td>
+    <td style="border-left: 2px dashed green; padding: 15px;">
+      <b>V podmapi wwwroot pa se "skrivajo" vse datoteke, ki jih je potrebno prepisati <i>na nek spletni strežnik</i></b>
+      <ul>
+        <li><b>_framework</b> daleč največja mapa z vsemi .NET CORE knjižnicami, ki jih projekt uporablja (torej ne celoten .NET Core, temveč potreben).</li>
+        <li><b>css, imgs, js</b> to so klasične mape spletnega projekta in tukaj so zato, ker so prisotne tudi v wwwroot podmapi našega projekta (so prekopirane!)</li>
+        <li><b>sample-data</b> tudi ta mapa je tukaj zato, ker se nahaja <b>v našem projektu</b> in se je sem <b>prekopirala</b></li>
+        <li><b>service-worker</b> datoteke so tukaj, ker je ta aplikacija tipa PWA (Progressive web application) in <b>so to potrebne datoteke za delovanje PWA</b></li>
+      </ul>
+    </tb>
+  </tr>
+</table>  
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>
+      Blazor projekt - prevedena verzija, podmapa <b>wwwroot/_framework</b>
+    </Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<table style="border-top: 2px dashed green; width: 100%;">
+  <tr>
+    <td style="padding: 15px;">
+      <img src="imgs/distribucija3.png" />
+    </td>
+    <td style="border-left: 2px dashed green; padding: 15px;">
+      <b>Datoteke v podmapi _framework so stisnjene in pripravljene za prenos v stisnjeni obliki</b>
+      <ul>
+        <li>Vse knjižnice so v treh oblikah
+          <ul>
+            <li><b>DLL</b> nestisnjena oblika</li>
+            <li><b>GZ</b> stisnjena oblika GZIP</li>
+            <li><b>BR</b> stisnjena oblika brotli</li>
+          </ul>
+        <li>
+        <li>Tu so VSE .NET Core knjižnice, ki jih vaš projekt uporablja</li>
+        <li>Tu so VSE ostele (Nuget) knjižnice, ki jih vaš projekt uporablja</li>
+        <li>Tu je tudi vas C# koda vašega projekta</li>
+      </ul>
+    </tb>
+  </tr>
+</table>  
+]]>
+    </Content>
+  </Slide>
+
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>
+      Blazor projekt - uporaba na apache (linux!) sztrežniku
+    </Caption>
+    <Type>ProjectFile</Type>
+    <Content>
+      <![CDATA[
+<b>Potrebno je samo prekopirati celotno wwwroot mapo in pravilno urediti .htaccess datoteko</b>
+<pre class="code-box"><code class=""hljs language-xml">
+&lt;IfModule mod_headers.c&gt;
+  # se klient zna uporabljati brotli, mu postrezi z .br datotekami
+  RewriteCond &quot;%{HTTP:Accept-encoding}&quot; &quot;br&quot;
+  RewriteCond &quot;%{REQUEST_FILENAME}\.br&quot; &quot;-s&quot;
+  RewriteRule &quot;^(.*)\.(js|json|css|dll|dat|blat|wasm)$&quot; &quot;$1\.$2\.br&quot; [QSA]
+
+  # se klient zna uporabljati gzip, mu postrezi z .gz datotekami
+  RewriteCond &quot;%{HTTP:Accept-encoding}&quot; &quot;gz&quot;
+  RewriteCond &quot;%{REQUEST_FILENAME}\.gz&quot; &quot;-s&quot;
+  RewriteRule &quot;^(.*)\.(js|json|css|dll|dat|blat|wasm)$&quot; &quot;$1\.$2\.gz&quot; [QSA]
+
+  # uredi tipe datotek
+  RewriteRule &quot;\.css\.br$&quot; &quot;-&quot; [T=text/css,E=no-brotli:1]
+  RewriteRule &quot;\.js\.br$&quot;  &quot;-&quot; [T=text/javascript,E=no-brotli:1]
+  RewriteRule &quot;\.json\.br$&quot;  &quot;-&quot; [T=application/json,E=no-brotli:1]
+  RewriteRule &quot;\.dll\.br$&quot;  &quot;-&quot; [T=T=application/octet-stream,E=no-brotli:1]
+  RewriteRule &quot;\.dat\.br$&quot;  &quot;-&quot; [T=application/octet-stream,E=no-brotli:1]
+  RewriteRule &quot;\.blat\.br$&quot;  &quot;-&quot; [T=application/octet-stream,E=no-brotli:1]
+  RewriteRule &quot;\.wasm\.br$&quot;  &quot;-&quot; [T=application/wasm,E=no-brotli:1]
+
+  # uredi tipe datotek
+  RewriteRule &quot;\.css\.gz$&quot; &quot;-&quot; [T=text/css,E=no-gzip:1]
+  RewriteRule &quot;\.js\.gz$&quot;  &quot;-&quot; [T=text/javascript,E=no-gzip:1]
+  RewriteRule &quot;\.json\.gz$&quot;  &quot;-&quot; [T=application/json,E=no-gzip:1]
+  RewriteRule &quot;\.dll\.gz$&quot;  &quot;-&quot; [T=T=application/octet-stream,E=no-gzip:1]
+  RewriteRule &quot;\.dat\.gz$&quot;  &quot;-&quot; [T=application/octet-stream,E=no-gzip:1]
+  RewriteRule &quot;\.blat\.gz$&quot;  &quot;-&quot; [T=application/octet-stream,E=no-gzip:1]
+  RewriteRule &quot;\.wasm\.gz$&quot;  &quot;-&quot; [T=application/wasm,E=no-gzip:1]
+
+  &lt;FilesMatch &quot;(\.js\.br|\.css\.br|\.json\.br|\.dll\.br|\.dat\.br|\.blat\.br|\.wasm\.br)$&quot;&gt;
+    Header set Content-Encoding br
+    Header append Vary Accept-Encoding
+  &lt;/FilesMatch&gt;
+    
+  &lt;FilesMatch &quot;(\.js\.gz|\.css\.gz|\.json\.gz|\.dll\.gz|\.dat\.gz|\.blat\.gz|\.wasm\.gz)$&quot;&gt;
+    Header set Content-Encoding gzip
+    Header append Vary Accept-Encoding
+  &lt;/FilesMatch&gt;
+&lt;/IfModule&gt;
+
+&lt;IfModule mod_rewrite.c&gt;
+  RewriteEngine On
+  RewriteBase /##podmapa##/
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /##podmapa##/index.html [L]
+&lt;/IfModule&gt;</code></pre>
+]]>
+    </Content>
+  </Slide>
+  
+  <!-- ************************************************************************************************ -->
+  <Slide>
+    <Caption>Zaključek / Vprašanja in odgovori</Caption>
+    <Type>Slide</Type>
+    <Content>
+      <![CDATA[
+<div style="font-size: 120%" class="text-center alert alert-success" role="alert">
+  <b><i>Ker sem navajen MS tehnologij mi je Blazor bližje kot Javascript razvoj</i></b>
+</div>
+<table style="border-top: 2px dashed green; width: 100%;">
+  <tr>
+    <td style="padding: 15px;">
+      <ul>
+        <li><b>Največje težave</b>
+          <ol>
+            <li>Velikost aplikacije</li>
+            <li>Težje delo z Javascript knjižnicami</li>
+          </ol>
+        </li>
+        <li style="padding-top: 30px;"><b>Največje prednosti</b>
+          <ol>
+            <li>C# kot statični jezik, kjer me že prevajalnik opozori na množico napak</li>
+            <li>Tipizirane spremenljivke</li>
+            <li>Lažje razhroščevanje</li>
+          </ol>
+        </li>
+        <li style="padding-top: 15px;"><b>GitHub projekt</b>
+          <ul>
+            <li>Celotna prezentacija je dosegljiva preko github: <b><a href="https://github.com/MPrtenjak">https://github.com/MPrtenjak</a></b></li>
+            <li>"Živa" prezentacija: <b><a href="https://mnet.si/ots2022">https://mnet.si/ots2022</a></b></li>
+          </ul>
+        </li>
+        <li style="padding-top: 15px;"><b>GitHub pages - statične spletne strani(!)</b>
+          <ul>
+            <li>"Živa" prezentacija je dosegljiva preko <b>GitHub pages</b></li>
+            <li>S pomočjo <b>GitHube actions</b> in se avtomatično prevede in naloži ob vsaki spremembi izvorne kode</li>
+            <li><b><a href="https://mprtenjak.github.io/OTS2022-Blazor">https://mprtenjak.github.io/OTS2022-Blazor</a></b></li>
+          </ul>
+        </li>        
+      </ul>
+    </td>
+    <td style="border-left: 2px dashed green; padding: 15px;">
+      <ul>
+        <li><b>Matjaž Prtenjak</b>
+          <ul>
+            <li>Freelancer, full-stack developer: <b><a href="https://mnet.si">https://mnet.si</a></b></li>
+            <li>Vodja razvoja maloprodajnega informacijskega sistema v Merkurju</li>
+          </ul>
+        </li>
+        <li style="padding-top: 15px;"><b>Kontakti</b>
+          <ul>
+            <li>github: <b>@MPrtenjak</b></li>
+            <li>e.mail: <b>info@mnet.si</b></li>
+            <li>web: <b><a href="https://mnet.si">https://mnet.si</a></b></li>
+          </ul>
+        </li>
+      </ul>
+    </tb>
+  </tr>
+</table>  
+]]>
+    </Content>
+  </Slide>
+</Slides>

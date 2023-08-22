@@ -1,0 +1,13 @@
+﻿<div>
+  <p>@message</p>
+  <button @onclick="ReverseMessage">Reverse Message</button>
+</div>
+
+@code {
+  private string message = "Hello Blazor!";
+
+  public void ReverseMessage()
+  {
+    message = new string(message.ToCharArray().Reverse().ToArray());
+  }
+}

@@ -24,7 +24,8 @@
 
   private string[] pages = new string[] {
     "/",
-    "counter"
+    "counter",
+    "compare"
   };
   private int pageIndex = 0;
 
@@ -32,6 +33,8 @@
   {
     base.OnInitialized();
 
+    navManager.NavigateTo("compare");
+    /*
     messageBroker.CaptionChangedEvent += CaptionChanged;
     messageBroker.PrevPageEvent += MoveToPreviousPage;
     messageBroker.NextPageEvent += MoveToNextPage;
@@ -46,9 +49,10 @@
         { "PageDown", movePrevious },
         { "swiperight", movePrevious },
 
-        /*{ "AudioVolumeUp", zoomIn },
-        { "AudioVolumeDown", zoomOut },*/
+        { "AudioVolumeUp", zoomIn },
+        { "AudioVolumeDown", zoomOut },
       };
+    */
   }
 
   public void Dispose()
@@ -95,8 +99,12 @@
 
   private void KeyDown(KeyboardEventArgs e)
   {
+    messageBroker.NotifyNewKeyboardEvent(e);
+    /*
+     * 
     _ = JS.InvokeVoidAsync("console.log", "key press");
     executeInputAction(e.Key);
+    */
   }
 
   private void executeInputAction(string action)

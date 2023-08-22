@@ -1,0 +1,16 @@
+﻿<div>
+  <ol>
+    @foreach(var item in todos)
+    {
+      <li>@item</li>
+    }
+  </ol>
+</div>
+
+@code {
+  private string[] todos = { 
+    "Learn C#", 
+    "Learn .NET Core", 
+    "Build something awesome" 
+  };
+}
