@@ -61,6 +61,7 @@
 
 		var fs = await JS.GetFromLocalStorage("fontSize");
 		fontSize = (string.IsNullOrWhiteSpace(fs)) ? 100 : int.Parse(fs);
+		messageBroker.NotifyZoomChanged(fontSize);
 
 		keys2Action = new Dictionary<string, Action>()
 			{
@@ -73,7 +74,10 @@
 				{ "swiperight", doPrevious },
 
 				{ "AudioVolumeUp", zoomIn },
+				{ "i", zoomIn },
+
 				{ "AudioVolumeDown", zoomOut },
+				{ "o", zoomOut },
 			};
 	}
 
@@ -97,6 +101,7 @@
 
 		customEventInterop = new(JS);
 		await customEventInterop.SetupGestureEventCallback(args => handleGestures(args));
+
 		await base.OnAfterRenderAsync(firstRender);
 	}
 
@@ -121,6 +126,8 @@
 	{
 		fontSize += delta;
 		await JS.SetInLocalStorage("fontSize", fontSize.ToString());
+		messageBroker.NotifyZoomChanged(fontSize);
+		StateHasChanged();
 	}
 
 	private void doPageSlide(int offset)

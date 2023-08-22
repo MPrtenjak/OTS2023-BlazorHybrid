@@ -2,19 +2,19 @@ using Microsoft.AspNetCore.Components.WebView.WindowsForms;
 
 namespace OTS2023
 {
-    public partial class MainForm : Form
+  public partial class MainForm : Form
+  {
+    public MainForm()
     {
-        public MainForm()
-        {
-            InitializeComponent();
+      InitializeComponent();
 
-            blazorWebView1.Dock = DockStyle.Fill;
+      blazorWebView1.Dock = DockStyle.Fill;
 
-            blazorWebView1.HostPage = "wwwroot\\index.html";
-            blazorWebView1.Services = Program.serviceProvider!;
-            blazorWebView1.RootComponents.Add<App>("#app");
-        }
-
-        // private readonly MessageBroker messageBroker = Program.serviceProvider!.GetRequiredService<MessageBroker>();
+      blazorWebView1.HostPage = "wwwroot\\index.html";
+      blazorWebView1.Services = Program.serviceProvider!;
+      blazorWebView1.RootComponents.Add<App>("#app");
     }
+
+    // private readonly MessageBroker messageBroker = Program.serviceProvider!.GetRequiredService<MessageBroker>();
+  }
 }

@@ -20,3 +20,10 @@ function removeGestureEventListener(dotNetObjectRef) {
 function changeUrl(subPage) {
 	window.history.pushState("object or string", "Title", subPage);
 }
+
+function focusKeyCatcher() {
+	let intervalId = setInterval(() => {
+		let element = document.getElementById("keyCatcher");
+		if (element) { clearInterval(intervalId); element.focus(); }
+	}, 100);
+}

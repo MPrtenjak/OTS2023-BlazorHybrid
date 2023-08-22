@@ -1,16 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-  <div id="keyCatcher" tabindex="-1" style="outline: none;" @onkeydown="e => KeyDown(e)">
+<div id="keyCatcher" tabindex="-1" style="outline: none; font-size: @fontSizePercent" @onkeydown="e => KeyDown(e)">
+  <div class="page">
     <main>
-      <h6>OTS2023 - Blazor Hybrid - Prtenjak</h6>
-
-      <hr />
-
-      <h1 class="text-center">@caption</h1>
-
-      <hr />
-
       <article class="content px-4">
         @Body
       </article>
@@ -19,97 +11,29 @@
 </div>
 
 @code {
-  private Dictionary<string, Action>? keys2Action;
-  private string caption = "";
-
-  private string[] pages = new string[] {
-    "/",
-    "counter",
-    "compare"
-  };
-  private int pageIndex = 0;
+  private string fontSizePercent { get; set; } = "100%";
 
   protected override void OnInitialized()
   {
     base.OnInitialized();
 
     navManager.NavigateTo("compare");
-    /*
-    messageBroker.CaptionChangedEvent += CaptionChanged;
-    messageBroker.PrevPageEvent += MoveToPreviousPage;
-    messageBroker.NextPageEvent += MoveToNextPage;
-
-    keys2Action = new Dictionary<string, Action>()
-      {
-        { "ArrowRight", moveNext },
-        { "PageUp", moveNext },
-        { "swipeleft", moveNext },
-
-        { "ArrowLeft", movePrevious },
-        { "PageDown", movePrevious },
-        { "swiperight", movePrevious },
-
-        { "AudioVolumeUp", zoomIn },
-        { "AudioVolumeDown", zoomOut },
-      };
-    */
+    messageBroker.ZoomChangedEvent += onZoomChanged;
   }
 
   public void Dispose()
   {
-    messageBroker.CaptionChangedEvent -= CaptionChanged;
-    messageBroker.PrevPageEvent -= MoveToPreviousPage;
-    messageBroker.NextPageEvent -= MoveToNextPage;
+    messageBroker.ZoomChangedEvent -= onZoomChanged;
   }
 
-  private void CaptionChanged(object? sender, PageCaptionArgs pca)
+private void onZoomChanged(object? sender, ZoomEventArgs zea)
   {
-    caption = pca.Caption;
+    fontSizePercent = $"{zea.Zoom}%";
     StateHasChanged();
   }
-
-  private void MoveToPreviousPage(object? sender, EventArgs args)
-  {
-    DecrementPage();
-    StateHasChanged();
-    ShowPage();
-  }
-
-  private void MoveToNextPage(object? sender, EventArgs args)
-  {
-    IncrementPage();
-    StateHasChanged();
-    ShowPage();
-  }
-
-  private void IncrementPage() =>
-    pageIndex = (pageIndex >= pages.Length - 1)
-      ? pages.Length - 1 : pageIndex + 1;
-
-  private void DecrementPage() =>
-    pageIndex = (pageIndex > 0)
-      ? pageIndex - 1 : 0;
-
-  private void ShowPage() =>
-    navManager.NavigateTo(pages[pageIndex]);
-
-  public void movePrevious() => MoveToPreviousPage(null, new EventArgs());
-
-  public void moveNext() => MoveToNextPage(null, new EventArgs());
 
   private void KeyDown(KeyboardEventArgs e)
   {
     messageBroker.NotifyNewKeyboardEvent(e);
-    /*
-     * 
-    _ = JS.InvokeVoidAsync("console.log", "key press");
-    executeInputAction(e.Key);
-    */
-  }
-
-  private void executeInputAction(string action)
-  {
-    if (keys2Action!.ContainsKey(action))
-      keys2Action![action]();
   }
 }
