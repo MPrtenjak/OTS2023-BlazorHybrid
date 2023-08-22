@@ -35,7 +35,7 @@
       // 
       blazorWebView1.Location = new Point(117, 82);
       blazorWebView1.Name = "blazorWebView1";
-      blazorWebView1.Size = new Size(75, 23);
+      blazorWebView1.Size = new Size(191, 79);
       blazorWebView1.TabIndex = 0;
       blazorWebView1.Text = "blazorWebView1";
       // 
@@ -45,6 +45,7 @@
       AutoScaleMode = AutoScaleMode.Font;
       ClientSize = new Size(800, 450);
       Controls.Add(blazorWebView1);
+      KeyPreview = true;
       Name = "MainForm";
       Text = "OTS2023";
       ResumeLayout(false);

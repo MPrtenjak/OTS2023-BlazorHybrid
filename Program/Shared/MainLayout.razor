@@ -1,13 +1,60 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-  <div class="sidebar">
-    <NavMenu />
-  </div>
+  <div id="keyCatcher" tabindex="-1" style="outline: none;" @onkeydown="e => KeyDown(e)">
+    <div class="sidebar">
+      <NavMenu />
+    </div>
 
-  <main>
-    <article class="content px-4">
-      @Body
-    </article>
-  </main>
+    <main>
+      <article class="content px-4">
+        @Body
+      </article>
+    </main>
+  </div>
 </div>
+
+@code {
+  private Dictionary<string, Action> keys2Action = new();
+
+  protected override void OnInitialized()
+  {
+    base.OnInitialized();
+
+    keys2Action = new Dictionary<string, Action>()
+      {
+        { "ArrowRight", doNext },
+        { "PageUp", doNext },
+        { "swipeleft", doNext },
+
+        { "ArrowLeft", doPrev },
+        { "PageDown", doPrev },
+        { "swiperight", doPrev },
+
+        /*{ "AudioVolumeUp", zoomIn },
+        { "AudioVolumeDown", zoomOut },*/
+      };
+  }
+
+  public void doPrev()
+  {
+    messageBroker.NotifyPrevPage();
+  }
+
+  public void doNext()
+  {
+    messageBroker.NotifyNextPage();
+  }
+
+  private void KeyDown(KeyboardEventArgs e)
+  {
+    _ = JS.InvokeVoidAsync("console.log", "key press");
+    excuteInputAction(e.Key);
+  }
+
+  private void excuteInputAction(string action)
+  {
+    if (keys2Action.ContainsKey(action))
+      keys2Action[action]();
+  }
+}
