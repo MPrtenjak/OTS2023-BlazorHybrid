@@ -1,23 +1,59 @@
 ﻿<Slides>
-  <!-- ************************************************************************************************ -->
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>Uvod</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<ul>
+  <li><b>Leto 2019</b></li>
+	<ul>
+	  <li>Imamo starejšega razvijalca/razvijalko, ki se mora naučiti spletnega razvoja</li>
+		<li>VUE / JavaScript</li>
+	</ul>
+  <li><b>Leto 2020</b></li>
+	<ul>
+	  <li>Imamo korono</li>
+	</ul>
+  <li><b>Leto 2021</b></li>
+	<ul>
+	  <li>Še vedno imamo korono</li>
+	</ul>
+  <li><b>Leto 2022</b></li>
+	<ul>
+	  <li>Razvijalec/Razvijalka iz leta 2019 lahko programira v C# in vseeno razvije spletno aplikacijo</li>
+		<li>Blazor / <i>predvsem</i> Blazor WebAssembly</li>
+	</ul>
+  <li><b>Leto 2023</b></li>
+	<ul>
+	  <li>Razvijalci (<i>iz prejšnjih let</i>) morajo prenoviti obstoječo veliko WinForms aplikacijo</li>
+		<li>Blazor Hybrid</li>
+	</ul>
+<ul>
+]]>
+		</Content>
+	</Slide>
+	
+	<!-- ************************************************************************************************ -->
   <Slide>
-    <Caption>Uvod</Caption>
+    <Caption>OTS 2019 - VUE</Caption>
     <Type>Slide</Type>
     <Content>
       <![CDATA[
+<div class="text-center">
+  <img src="imgs/welcome-to-vue.png" />
+</div>
+
 <ul>
-  <li>OTS 2019</li>
+  <li>Kako razvijati v VUE/NUXT, če si navajen/a objektnih jezikov, kot so C++, C# ali JAVA?</li>
+  <li>Zaključki:</li>
   <ul>
-    <li>Kako razvijati v VUE/NUXT, če si navajen/a objektnih jezikov, kot so C++, C# ali JAVA?</li>
-    <li>Zaključki:</li>
-    <ul>
-      <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS</li>
-      <li>Potrebno se je naučiti JavaScript</li>
-      <li>In šele sedaj pride na vrsto Vue</li>
-      <li><b>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack)</b></li>
-    </ul>
+    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS</li>
+    <li>Potrebno se je naučiti JavaScript</li>
+    <li>In šele sedaj pride na vrsto Vue</li>
+    <li><b>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack)</b></li>
   </ul>
-  <li style="font-size: 120%">Prezentacija je še vedno dosegljiva na <a href="https://mnet.si/ots2019">https://mnet.si/ots2019</a>
+  <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2019">https://mnet.si/ots2019</a>
 <ul>
 ]]>
     </Content>
@@ -29,6 +65,10 @@
     <Type>Slide</Type>
     <Content>
       <![CDATA[
+<div class="text-center">
+  <img src="imgs/microsoft+blazor.png" />
+</div>
+			
 <ul>
   <li>Da razčistimo</li>  
   <ul>
@@ -40,7 +80,7 @@
   <li>Blazor</li>
   <ul>
     <li>Microsoftova tehnologija</li>
-    <li>Razvoj v C#/.Net Core programskem jeziku (odprtokoden)</li>
+    <li>Razvoj v C#/.NET Core programskem jeziku (odprtokoden)</li>
     <li>Prevod v WASM (odprtokoden)</li>
   </ul>
   <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2022">https://mnet.si/ots2022</a>  
@@ -49,7 +89,140 @@
     </Content>
   </Slide>
 
-  <!-- ************************************************************************************************ -->
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>OTS 2023 - BLAZOR HYBRID</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="imgs/NET-MAUI-Blazor-App.png" />
+</div>
+			
+<ul>
+  <li>Velja enako kot lani</li>  
+  <ul>
+    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
+    <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
+  </ul>  
+<ul>
+]]>
+		</Content>
+	</Slide>
+
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>Kaj je Blazor Hybrid?</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="imgs/NET-MAUI-Blazor-App.png" />
+</div>
+			
+<ul>
+  <li>.NET in različna poimenovanja...</li>
+	<li>Blazor...</li>
+	<li>MAUI...</li>
+	<li>in končno Blazor Hybrid!</li>
+</ul>
+]]>
+		</Content>
+	</Slide>
+
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>.NET</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<ul>
+  <li><b>.NET / <i>.NET Framework</i></b></li>
+	<ul>
+	  <li>Windows- leto 2002</li>
+		<li>Odgovor na Javo</li>
+		<li>Nikoli v resnici ni bil multi-platform</li>
+	</ul>
+	<li><b>.NET Core</b></li>
+	<ul>
+	  <li>Projekt MONO - multi-platform</li>
+		<li>Leto 2017 - .NET Core ==> multi-platform</li>
+	</ul>
+	<li><b>.NET</b></li>
+	<ul>
+	  <li>Do verzije 3.1 še .NET Core</li>
+		<li>Nadalje samo .NET</li>
+  	<ul>
+	  	<li>.NET 5.0 - "star"</li>
+	  	<li>.NET 6.0 - <b>LTS == LONG term support</b></li>
+	  	<li>.NET 7.0 - <b>STS == STANDARD ( ~~ short) term support</b></li>
+	  	<li>.NET 8.0 - "v pripravi"</li>
+		</ul>
+	</ul>
+</ul>
+]]>
+		</Content>
+	</Slide>
+
+
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>MAUI</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="imgs/maui.png" />
+  <img src="imgs/maui-1.png" />
+</div>
+						
+<ul>
+  <li><b>MAUI</b> - Multi-platform Application UI</li>
+	<ul>
+	  <li>Windows</li>
+		<li>Android</li>
+		<li>iOS</li>
+		<li>Mac</li>
+	</ul>
+</ul>
+]]>
+		</Content>
+	</Slide>
+
+
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>BLAZOR</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="imgs/blazor.png" />
+</div>
+						
+<ul>
+  <li>Blazor Server</li>
+  <li>Blazor WebAssembly</li>
+</ul>
+]]>
+		</Content>
+	</Slide>
+
+	
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>BLAZOR</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="imgs/blazor-hybrid.png" />
+</div>
+]]>
+		</Content>
+	</Slide>
+
+	<!-- ************************************************************************************************ -->
   <Slide>
     <Caption>Blazor, kaj dobimo v škatlici?</Caption>
     <Type>Slide</Type>

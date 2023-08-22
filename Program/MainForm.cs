@@ -8,6 +8,8 @@ namespace OTS2023
     {
       InitializeComponent();
 
+      WindowState = FormWindowState.Maximized;
+
       blazorWebView1.Dock = DockStyle.Fill;
 
       blazorWebView1.HostPage = "wwwroot\\index.html";

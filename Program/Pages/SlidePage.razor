@@ -14,7 +14,7 @@
 		<span style="font-size: 75%; font-weight: 500;color: red;" class="me-2">
 			[@(currentSlide + 1)].
 		</span>
-		<span style="font-size: 150%; font-weight: 900;color: red;">
+		<span style="font-size: 100%; font-weight: 900;color: red;">
 			@slides[currentSlide].Caption
 		</span>
 		<span>
@@ -49,7 +49,7 @@
 
 	protected override async Task OnInitializedAsync()
 	{
-		var xmlResult = XDocument.Load("vue_blazor_compare.xml");
+		var xmlResult = XDocument.Load("blazor_hybrid.xml");
 
 		foreach (var slide in xmlResult.XPathSelectElements("//Slide"))
 			slides.Add(Slide.FromXElement(slide));
