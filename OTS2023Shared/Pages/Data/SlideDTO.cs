@@ -1,4 +1,4 @@
-﻿namespace OTS2023.Pages.Data
+﻿namespace OTS2023Shared.Pages.Data
 {
   public class SlideDTO
   {
@@ -13,7 +13,7 @@
 
     private static Type GetSlideComponentType(string slideComponentName)
     {
-      var fullTypeName = "OTS2023.Pages.SlideTemplates." + slideComponentName;
+      var fullTypeName = "OTS2023Shared.Pages.SlideTemplates." + slideComponentName;
       return Type.GetType(fullTypeName)!;
     }
   }

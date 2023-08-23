@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace OTS2023.Pages.Data
+namespace OTS2023Shared.Pages.Data
 {
   public class Slide
   {
@@ -30,7 +30,7 @@ namespace OTS2023.Pages.Data
 
     private static Type GetTypeFromPartialName(string partialName)
     {
-      var fullTypeName = "OTS2023.Pages.Components." + partialName;
+      var fullTypeName = "OTS2023Shared.Pages.Components." + partialName;
       return Type.GetType(fullTypeName)!;
     }
   }

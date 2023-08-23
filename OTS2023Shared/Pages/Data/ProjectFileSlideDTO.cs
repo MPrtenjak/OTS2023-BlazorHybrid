@@ -1,4 +1,4 @@
-﻿namespace OTS2023.Pages.Data
+﻿namespace OTS2023Shared.Pages.Data
 {
   public class ProjectFileSlideDTO : SlideDTO
   {
