@@ -4,165 +4,192 @@
 
 @layout MainLayout
 
+@inject HttpClient Http
+@inject NavigationManager nm
+
 @using System.Xml.Linq
 @using System.Xml.Serialization
 @using System.Xml.XPath
 
 @if (slides.Count > 0)
 {
-	<div class="d-flex justify-content-between flex-wrap">
-		<span style="font-size: 75%; font-weight: 500;color: red;" class="me-2">
-			[@(currentSlide + 1)].
-		</span>
-		<span style="font-size: 100%; font-weight: 900;color: red;">
-			@slides[currentSlide].Caption
-		</span>
-		<span>
-			<button id="zoomOut" class="btn btn-primary me-2" @onclick="zoomOut"><span class="oi oi-zoom-out"></span></button>
-			<button id="percent" class="btn btn-primary me-2">@fontSizePercent</button>
-			<button id="zoomIn" class="btn btn-primary me-5" @onclick="zoomIn"><span class="oi oi-zoom-in"></span></button>
+  <div class="d-flex justify-content-between flex-wrap">
+    <span style="font-size: 75%; font-weight: 500;color: red;" class="me-2">
+      [@(currentSlide + 1)].
+    </span>
+    <span style="font-size: 100%; font-weight: 900;color: red;">
+      @slides[currentSlide].Caption
+    </span>
+    <span>
+      <button id="zoomOut" class="btn btn-primary me-2" @onclick="zoomOut"><span class="oi oi-zoom-out"></span></button>
+      <button id="percent" class="btn btn-primary me-2">@fontSizePercent</button>
+      <button id="zoomIn" class="btn btn-primary me-5" @onclick="zoomIn"><span class="oi oi-zoom-in"></span></button>
 
-			<button id="goBack" class="btn btn-primary me-2" @onclick="doPrevious" disabled="@CanNotGoBack"><span class="oi oi-media-skip-backward"></span></button>
-			<button id="goFwd" class="btn btn-primary me-2" @onclick="doNext" disabled="@CanNotGoForward"><span class="oi oi-media-skip-forward"></span></button>
-		</span>
-	</div>
-	<hr />
+      <button id="goBack" class="btn btn-primary me-2" @onclick="doPrevious" disabled="@CanNotGoBack"><span class="oi oi-media-skip-backward"></span></button>
+      <button id="goFwd" class="btn btn-primary me-2" @onclick="doNext" disabled="@CanNotGoForward"><span class="oi oi-media-skip-forward"></span></button>
+    </span>
+  </div>
+  <hr />
 
   <DynamicComponent Type="@slides[currentSlide].SlideComponent" Parameters="@slideParameters()" />
 }
 
 @code {
-	[Parameter] public int? slideID { get; set; }
+  [Parameter] public int? slideID { get; set; }
 
-	private List<SlideDTO> slides = new List<SlideDTO>();
-	private int currentSlide = 0;
-	private int fontSize = 100;
+  private List<SlideDTO> slides = new List<SlideDTO>();
+  private int currentSlide = 0;
+  private int fontSize = 100;
 
-	private bool CanGoBack => (currentSlide > 0);
-	private bool CanGoForward => (currentSlide < slides.Count - 1);
-	private bool CanNotGoBack => !CanGoBack;
-	private bool CanNotGoForward => !CanGoForward;
-	private string fontSizePercent => $"{fontSize}%";
-	private Dictionary<string, Action> keys2Action = new();
+  private bool CanGoBack => (currentSlide > 0);
+  private bool CanGoForward => (currentSlide < slides.Count - 1);
+  private bool CanNotGoBack => !CanGoBack;
+  private bool CanNotGoForward => !CanGoForward;
+  private string fontSizePercent => $"{fontSize}%";
+  private Dictionary<string, Action> keys2Action = new();
 
-	private GestureEventInterop? customEventInterop { get; set; }
+  private GestureEventInterop? customEventInterop { get; set; }
 
-	protected override async Task OnInitializedAsync()
-	{
-		var xmlResult = XDocument.Load("blazor_hybrid.xml");
+  protected override async Task OnInitializedAsync()
+  {
+    var xmlResult = (Http.BaseAddress == null)
+      ? await GetSlideLocally()
+      : await GetSlideDataAsHttp();
 
-		foreach (var slide in xmlResult.XPathSelectElements("//Slide"))
-			slides.Add(Slide.FromXElement(slide));
+    foreach (var slide in xmlResult.XPathSelectElements("//Slide"))
+      slides.Add(Slide.FromXElement(slide));
 
-		currentSlide = (slideID.HasValue && slideID.Value >= 1 && slideID.Value <= slides.Count)
-			? (slideID.Value - 1) : 0;
+    currentSlide = (slideID.HasValue && slideID.Value >= 1 && slideID.Value <= slides.Count)
+      ? (slideID.Value - 1) : 0;
 
-		messageBroker.KeyboardEvent += NewKeyboardEvent;
+    messageBroker.KeyboardEvent += NewKeyboardEvent;
 
-		var fs = await JS.GetFromLocalStorage("fontSize");
-		fontSize = (string.IsNullOrWhiteSpace(fs)) ? 100 : int.Parse(fs);
-		messageBroker.NotifyZoomChanged(fontSize);
+    var fs = await JS.GetFromLocalStorage("fontSize");
+    fontSize = (string.IsNullOrWhiteSpace(fs)) ? 100 : int.Parse(fs);
+    messageBroker.NotifyZoomChanged(fontSize);
 
-		keys2Action = new Dictionary<string, Action>()
-			{
-				{ "ArrowRight", doNext },
-				{ "PageUp", doNext },
-				{ "swipeleft", doNext },
+    keys2Action = new Dictionary<string, Action>()
+      {
+        { "ArrowRight", doNext },
+        { "PageUp", doNext },
+        { "swipeleft", doNext },
 
-				{ "ArrowLeft", doPrevious },
-				{ "PageDown", doPrevious },
-				{ "swiperight", doPrevious },
+        { "ArrowLeft", doPrevious },
+        { "PageDown", doPrevious },
+        { "swiperight", doPrevious },
 
-				{ "AudioVolumeUp", zoomIn },
-				{ "i", zoomIn },
+        { "AudioVolumeUp", zoomIn },
+        { "i", zoomIn },
 
-				{ "AudioVolumeDown", zoomOut },
-				{ "o", zoomOut },
-			};
-	}
+        { "AudioVolumeDown", zoomOut },
+        { "o", zoomOut },
+      };
+  }
 
-	public void Dispose()
-	{
-		messageBroker.KeyboardEvent -= NewKeyboardEvent;
-	}
+  private async Task<XDocument> GetSlideDataAsHttp()
+  {
+    var xmlDataFile = "_content/OTS2023Shared/data/blazor_hybrid.xml";
+    var stringResult = await Http.GetStringAsync(xmlDataFile);
+    return XDocument.Parse(stringResult);
+  }
 
-	private IDictionary<string, object> slideParameters()
-	{
-		return new Dictionary<string, object>()
-		{
-			{ "SlideData", slides[currentSlide] }
-		};
-	}
 
-	protected override async Task OnAfterRenderAsync(bool firstRender)
-	{
-		if (!firstRender)
-			return;
+  private async Task<XDocument> GetSlideLocally()
+  {
+    var xmlDataFile = "wwwroot/data/blazor_hybrid.xml";
+    XDocument xmlData;
 
-		customEventInterop = new(JS);
-		await customEventInterop.SetupGestureEventCallback(args => handleGestures(args));
+    using (var stream = File.OpenRead(xmlDataFile))
+    {
+      xmlData = await XDocument.LoadAsync(stream, LoadOptions.None, CancellationToken.None);
+    }
 
-		await base.OnAfterRenderAsync(firstRender);
-	}
+    return xmlData;
+  }
 
-	public async ValueTask DisposeAsync()
-	{
-		if (customEventInterop is not null)
-			await customEventInterop.TearDownGestureEventCallback();
-	}
+  public void Dispose()
+  {
+    messageBroker.KeyboardEvent -= NewKeyboardEvent;
+  }
 
-	public async void zoomOut()
-	{
-		if (fontSize > 30)
-			await changeFontSize(-10);
-	}
+  private IDictionary<string, object> slideParameters()
+  {
+    return new Dictionary<string, object>()
+    {
+      { "SlideData", slides[currentSlide] }
+    };
+  }
 
-	public async void zoomIn()
-	{
-		await changeFontSize(10);
-	}
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (!firstRender)
+      return;
 
-	private async Task changeFontSize(int delta)
-	{
-		fontSize += delta;
-		await JS.SetInLocalStorage("fontSize", fontSize.ToString());
-		messageBroker.NotifyZoomChanged(fontSize);
-		StateHasChanged();
-	}
+    customEventInterop = new(JS);
+    await customEventInterop.SetupGestureEventCallback(args => handleGestures(args));
 
-	private void doPageSlide(int offset)
-	{
-		currentSlide += offset;
-		StateHasChanged();
-		JS.ChangeURL($"compare/{currentSlide+1}");
-	}
+    await base.OnAfterRenderAsync(firstRender);
+  }
 
-	public void doPrevious()
-	{
-		if (CanGoBack)
-			doPageSlide(-1);
-	}
+  public async ValueTask DisposeAsync()
+  {
+    if (customEventInterop is not null)
+      await customEventInterop.TearDownGestureEventCallback();
+  }
 
-	public void doNext()
-	{
-		if (CanGoForward)
-			doPageSlide(+1);
-	}
+  public async void zoomOut()
+  {
+    if (fontSize > 30)
+      await changeFontSize(-10);
+  }
 
-	private void executeInputAction(string action)
-	{
-		if (keys2Action.ContainsKey(action))
-			keys2Action[action]();
-	}
+  public async void zoomIn()
+  {
+    await changeFontSize(10);
+  }
 
-	private Task handleGestures(string args) {
-		executeInputAction(args);
+  private async Task changeFontSize(int delta)
+  {
+    fontSize += delta;
+    await JS.SetInLocalStorage("fontSize", fontSize.ToString());
+    messageBroker.NotifyZoomChanged(fontSize);
+    StateHasChanged();
+  }
 
-		return Task.CompletedTask;
-	}
+  private void doPageSlide(int offset)
+  {
+    currentSlide += offset;
+    StateHasChanged();
+    JS.ChangeURL($"compare/{currentSlide + 1}");
+  }
 
-	private void NewKeyboardEvent(object? sender, KeyboardEventArgs e)
-	{
-		executeInputAction(e.Key);
-	}
+  public void doPrevious()
+  {
+    if (CanGoBack)
+      doPageSlide(-1);
+  }
+
+  public void doNext()
+  {
+    if (CanGoForward)
+      doPageSlide(+1);
+  }
+
+  private void executeInputAction(string action)
+  {
+    if (keys2Action.ContainsKey(action))
+      keys2Action[action]();
+  }
+
+  private Task handleGestures(string args)
+  {
+    executeInputAction(args);
+
+    return Task.CompletedTask;
+  }
+
+  private void NewKeyboardEvent(object? sender, KeyboardEventArgs e)
+  {
+    executeInputAction(e.Key);
+  }
 }

@@ -16,10 +16,4 @@
     <ProjectReference Include="..\OTS2023Shared\OTS2023Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Update="blazor_hybrid.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
 </Project>
