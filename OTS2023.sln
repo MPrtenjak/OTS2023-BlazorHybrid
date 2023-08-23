@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34009.444
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTS2023", "Program\OTS2023.csproj", "{2DA7D0B1-13DB-426C-9CC0-BE7B861945D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTS2023", "OTS2023BlazorHybrid\OTS2023.csproj", "{2DA7D0B1-13DB-426C-9CC0-BE7B861945D8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTS2023Shared", "OTS2023Shared\OTS2023Shared.csproj", "{40069E32-296E-449F-8A5D-6B8412454429}"
 EndProject
