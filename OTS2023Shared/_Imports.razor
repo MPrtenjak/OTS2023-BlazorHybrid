@@ -1,1 +1,10 @@
 ﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop;
+
+@using OTS2023Shared.Layouts
+@using OTS2023Shared.Messages
+@using OTS2023Shared.Helpers
+
+@inject IJSRuntime JS;
+@inject MessageBroker messageBroker
+@inject NavigationManager navManager
