@@ -41,7 +41,7 @@
     <Content>
       <![CDATA[
 <div class="text-center">
-  <img src="imgs/welcome-to-vue.png" />
+  <img src="_content/OTS2023Shared/imgs/welcome-to-vue.png" />
 </div>
 
 <ul>
@@ -66,7 +66,7 @@
     <Content>
       <![CDATA[
 <div class="text-center">
-  <img src="imgs/microsoft+blazor.png" />
+  <img src="_content/OTS2023Shared/imgs/microsoft+blazor.png" />
 </div>
 			
 <ul>
@@ -96,7 +96,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="imgs/NET-MAUI-Blazor-App.png" />
+  <img src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
 </div>
 			
 <ul>
@@ -117,7 +117,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="imgs/NET-MAUI-Blazor-App.png" />
+  <img src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
 </div>
 			
 <ul>
@@ -172,8 +172,8 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="imgs/maui.png" />
-  <img src="imgs/maui-1.png" />
+  <img src="_content/OTS2023Shared/imgs/maui.png" />
+  <img src="_content/OTS2023Shared/imgs/maui-1.png" />
 </div>
 						
 <ul>
@@ -197,7 +197,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="imgs/blazor.png" />
+  <img src="_content/OTS2023Shared/imgs/blazor.png" />
 </div>
 						
 <ul>
@@ -216,7 +216,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="imgs/blazor-hybrid.png" />
+  <img src="_content/OTS2023Shared/imgs/blazor-hybrid.png" />
 </div>
 ]]>
 		</Content>
@@ -583,7 +583,7 @@
 <table style="border-top: 2px dashed green; width: 100%;">
   <tr>
     <td style="padding: 15px;">
-      <img src="imgs/projekt.png" />
+      <img src="_content/OTS2023Shared/imgs/projekt.png" />
     </td>
     <td style="border-left: 2px dashed green; padding: 15px;">
       <ul>
@@ -621,7 +621,7 @@
 <table style="border-top: 2px dashed green; width: 100%;">
   <tr>
     <td style="padding: 15px;">
-      <img src="imgs/distribucija1.png" />
+      <img src="_content/OTS2023Shared/imgs/distribucija1.png" />
     </td>
     <td style="border-left: 2px dashed green; padding: 15px;">
       <ul>
@@ -644,7 +644,7 @@
 <table style="border-top: 2px dashed green; width: 100%;">
   <tr>
     <td style="padding: 15px;">
-      <img src="imgs/distribucija2.png" />
+      <img src="_content/OTS2023Shared/imgs/distribucija2.png" />
     </td>
     <td style="border-left: 2px dashed green; padding: 15px;">
       <b>V podmapi wwwroot pa se "skrivajo" vse datoteke, ki jih je potrebno prepisati <i>na nek spletni strežnik</i></b>
@@ -672,7 +672,7 @@
 <table style="border-top: 2px dashed green; width: 100%;">
   <tr>
     <td style="padding: 15px;">
-      <img src="imgs/distribucija3.png" />
+      <img src="_content/OTS2023Shared/imgs/distribucija3.png" />
     </td>
     <td style="border-left: 2px dashed green; padding: 15px;">
       <b>Datoteke v podmapi _framework so stisnjene in pripravljene za prenos v stisnjeni obliki</b>
