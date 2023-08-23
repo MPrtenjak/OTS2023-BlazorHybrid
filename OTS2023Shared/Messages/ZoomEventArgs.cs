@@ -1,6 +1,6 @@
-﻿namespace OTS2023.Messages
+﻿namespace OTS2023Shared.Messages
 {
-  internal class ZoomEventArgs : EventArgs
+  public class ZoomEventArgs : EventArgs
   {
     public int Zoom { get; set; } = 100;
 

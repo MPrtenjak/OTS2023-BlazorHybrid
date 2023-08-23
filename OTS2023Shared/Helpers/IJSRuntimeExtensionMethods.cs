@@ -1,6 +1,6 @@
 ﻿using Microsoft.JSInterop;
 
-namespace OTS2023.Helpers
+namespace OTS2023Shared.Helpers
 {
   public static class IJSRuntimeExtensionMethods
   {

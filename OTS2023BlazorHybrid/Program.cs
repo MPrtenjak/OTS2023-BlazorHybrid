@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
-using OTS2023.Messages;
-using System.Diagnostics.PerformanceData;
+using OTS2023Shared.Messages;
 
 namespace OTS2023
 {
@@ -15,7 +14,6 @@ namespace OTS2023
       var services = new ServiceCollection();
       services.AddWindowsFormsBlazorWebView();
       services.AddBlazorWebViewDeveloperTools();
-      services.AddSingleton<CounterData>();
       services.AddSingleton<MessageBroker>();
 
       serviceProvider = services.BuildServiceProvider();

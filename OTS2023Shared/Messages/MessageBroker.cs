@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Components.Web;
 
-namespace OTS2023.Messages
+namespace OTS2023Shared.Messages
 {
-  internal class MessageBroker
+  public class MessageBroker
   {
     public event EventHandler<KeyboardEventArgs> KeyboardEvent = null!;
     public event EventHandler<ZoomEventArgs> ZoomChangedEvent = null!;
