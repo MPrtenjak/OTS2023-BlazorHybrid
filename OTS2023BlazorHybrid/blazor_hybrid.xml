@@ -199,11 +199,6 @@
 <div class="text-center">
   <img src="_content/OTS2023Shared/imgs/blazor.png" />
 </div>
-						
-<ul>
-  <li>Blazor Server</li>
-  <li>Blazor WebAssembly</li>
-</ul>
 ]]>
 		</Content>
 	</Slide>
@@ -211,7 +206,7 @@
 	
 	<!-- ************************************************************************************************ -->
 	<Slide>
-		<Caption>BLAZOR</Caption>
+		<Caption>BLAZOR Hybrid</Caption>
 		<Type>Slide</Type>
 		<Content>
 			<![CDATA[
