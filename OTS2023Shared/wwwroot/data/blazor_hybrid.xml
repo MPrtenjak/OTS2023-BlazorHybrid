@@ -30,6 +30,8 @@
 		<li>Blazor Hybrid</li>
 	</ul>
 <ul>
+
+<a href="#" onclick="sayHi('10')">hi</a>
 ]]>
 		</Content>
 	</Slide>

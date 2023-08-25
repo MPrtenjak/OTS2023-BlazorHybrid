@@ -27,3 +27,16 @@ function focusKeyCatcher() {
 		if (element) { clearInterval(intervalId); element.focus(); }
 	}, 100);
 }
+
+var runExampleDdotNetObjectRef;
+function addRunExampleEventListener(dotNetObjectRef) {
+	runExampleDdotNetObjectRef = dotNetObjectRef;
+}
+
+function removeRunExampleEventListener() {
+	runExampleDdotNetObjectRef = undefined;
+}
+
+function sayHi(elementId) {
+	runExampleDdotNetObjectRef.invokeMethodAsync('OnRunExample', elementId)
+}

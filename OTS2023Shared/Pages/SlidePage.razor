@@ -10,6 +10,7 @@
 @using System.Xml.Linq
 @using System.Xml.Serialization
 @using System.Xml.XPath
+@using System.Diagnostics;
 
 @if (slides.Count > 0)
 {
@@ -49,6 +50,7 @@
   private Dictionary<string, Action> keys2Action = new();
 
   private GestureEventInterop? customEventInterop { get; set; }
+  private RunExampleEventInterop? runExampleEventInterop { get; set; }
 
   protected override async Task OnInitializedAsync()
   {
@@ -128,6 +130,9 @@
     customEventInterop = new(JS);
     await customEventInterop.SetupGestureEventCallback(args => handleGestures(args));
 
+    runExampleEventInterop = new(JS);
+    await runExampleEventInterop.SetupRunExampleEventCallback(args => handleRunExample(args));
+
     await base.OnAfterRenderAsync(firstRender);
   }
 
@@ -135,6 +140,9 @@
   {
     if (customEventInterop is not null)
       await customEventInterop.TearDownGestureEventCallback();
+
+    if (runExampleEventInterop is not null)
+      await runExampleEventInterop.TearDownRunExampleEventCallback();
   }
 
   public async void zoomOut()
@@ -184,6 +192,15 @@
   private Task handleGestures(string args)
   {
     executeInputAction(args);
+
+    return Task.CompletedTask;
+  }
+
+  private Task handleRunExample(string exampleId)
+  {
+    var examplePath = Path.Combine(@"C:\Razvoj\github-hosted\WinForms_2_BlazorHybrid\ExecutableFiles", $"STEP{exampleId}", "Simple CRUD.exe");
+    var psi = new ProcessStartInfo(examplePath);
+    Process.Start(psi);
 
     return Task.CompletedTask;
   }
