@@ -31,7 +31,7 @@
 	</ul>
 <ul>
 
-<a href="#" onclick="sayHi('10')">hi</a>
+<li>KORAK 20: Samo Blazor obrazec  (<a href="javascript: void(0);" onclick="runExternalExample('20')">Prikaži</a>)</li>
 ]]>
 		</Content>
 	</Slide>
@@ -274,10 +274,10 @@
 <li>KORAK 1: Odpakiranje začetnega projekta</li>
 <li>KORAK 2: Priprava projekta za prevod</li>
 <li>KORAK 3: BUG: Če baza podatkov ne obstaja, je treba ustvariti tudi mapo</li>
-<li>KORAK 4: Inicialno polnjenje baze podatkov</li>
+<li>KORAK 4: Inicialno polnjenje baze podatkov (<a href="javascript: void(0);" onclick="runExternalExample('4')">Prikaži</a>)</li>
 <li>KORAK 5: Nadgradnja na .NET 7.0</li>
 <li>KORAK 6: Dodajanje blazor Hybrid k projektu</li>
-<li>KORAK 7: Premik Blazor nastavitev iz obrazca v glavni program</li>
+<li>KORAK 7: Premik Blazor nastavitev iz obrazca v glavni program  (<a href="javascript: void(0);" onclick="runExternalExample('7')">Prikaži</a>)</li>
 </ul>
 ]]>
 		</Content>
@@ -291,11 +291,11 @@
 			<![CDATA[
 <ul>
 <li>KORAK 8: Globalni razred za števec</li>
-<li>KORAK 9: Sinhronizacija števcev</li>
-<li>KORAK 10: Prikaz članov v obrazcu Blazor</li>
+<li>KORAK 9: Sinhronizacija števcev (<a href="javascript: void(0);" onclick="runExternalExample('9')">Prikaži</a>)</li>
+<li>KORAK 10: Prikaz članov v obrazcu Blazor  (<a href="javascript: void(0);" onclick="runExternalExample('10')">Prikaži</a>)</li>
 <li>KORAK 11: Sinhronizacija podatkov med obrazci</li>
 <li>KORAK 12: Komunikacija iz obrazca Blazor nazaj v osnovno aplikacijo</li>
-<li>KORAK 13: Obravnava dogodkov EditMember in DeleteMember</li>
+<li>KORAK 13: Obravnava dogodkov EditMember in DeleteMember (<a href="javascript: void(0);" onclick="runExternalExample('13')">Prikaži</a>)</li>
 <li>KORAK 14: Dodajanje Blazor obrazca izvirnemu obrazcu</li>
 </ul>
 ]]>
@@ -313,8 +313,8 @@
 <li>KORAK 16: Dodajanje novega člana iz Blazor obrazca</li>
 <li>KORAK 17: Popravek podatkov člana iz Blazor obrazca</li>
 <li>KORAK 18: Čiščenje vnosnih elementov obrazca</li>
-<li>KORAK 19: Še zadnji gumb iz WinForms obrazca na Blazor</li>
-<li>KORAK 20: Samo Blazor obrazec</li>
+<li>KORAK 19: Še zadnji gumb iz WinForms obrazca na Blazor  (<a href="javascript: void(0);" onclick="runExternalExample('19')">Prikaži</a>)</li>
+<li>KORAK 20: Samo Blazor obrazec  (<a href="javascript: void(0);" onclick="runExternalExample('20')">Prikaži</a>)</li>
 <li>KORAK 21: Zaključne misli</li>
 </ul>
 ]]>

@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.DependencyInjection;
+using OTS2023.Platform;
 using OTS2023Shared.Messages;
+using OTS2023Shared.Platform;
 
 namespace OTS2023
 {
@@ -15,7 +16,9 @@ namespace OTS2023
       var services = new ServiceCollection();
       services.AddWindowsFormsBlazorWebView();
       services.AddBlazorWebViewDeveloperTools();
+
       services.AddSingleton<MessageBroker>();
+      services.AddScoped<IBlazor, BlazorHybrid>();
       services.AddScoped(sp => new HttpClient());
 
       serviceProvider = services.BuildServiceProvider();

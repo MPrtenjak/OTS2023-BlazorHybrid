@@ -6,6 +6,7 @@
 
 @inject HttpClient Http
 @inject NavigationManager nm
+@inject IBlazor blazorType
 
 @using System.Xml.Linq
 @using System.Xml.Serialization
@@ -54,9 +55,7 @@
 
   protected override async Task OnInitializedAsync()
   {
-    var xmlResult = (Http.BaseAddress == null)
-      ? await GetSlideLocally()
-      : await GetSlideDataAsHttp();
+    var xmlResult = await blazorType.ReadSlideData();
 
     foreach (var slide in xmlResult.XPathSelectElements("//Slide"))
       slides.Add(Slide.FromXElement(slide));
@@ -86,27 +85,6 @@
         { "AudioVolumeDown", zoomOut },
         { "o", zoomOut },
       };
-  }
-
-  private async Task<XDocument> GetSlideDataAsHttp()
-  {
-    var xmlDataFile = "_content/OTS2023Shared/data/blazor_hybrid.xml";
-    var stringResult = await Http.GetStringAsync(xmlDataFile);
-    return XDocument.Parse(stringResult);
-  }
-
-
-  private async Task<XDocument> GetSlideLocally()
-  {
-    var xmlDataFile = "wwwroot/data/blazor_hybrid.xml";
-    XDocument xmlData;
-
-    using (var stream = File.OpenRead(xmlDataFile))
-    {
-      xmlData = await XDocument.LoadAsync(stream, LoadOptions.None, CancellationToken.None);
-    }
-
-    return xmlData;
   }
 
   public void Dispose()
@@ -198,9 +176,7 @@
 
   private Task handleRunExample(string exampleId)
   {
-    var examplePath = Path.Combine(@"C:\Razvoj\github-hosted\WinForms_2_BlazorHybrid\ExecutableFiles", $"STEP{exampleId}", "Simple CRUD.exe");
-    var psi = new ProcessStartInfo(examplePath);
-    Process.Start(psi);
+    blazorType.RunExternalExample(exampleId);
 
     return Task.CompletedTask;
   }

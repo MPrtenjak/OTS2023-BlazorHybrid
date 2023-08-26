@@ -37,6 +37,6 @@ function removeRunExampleEventListener() {
 	runExampleDdotNetObjectRef = undefined;
 }
 
-function sayHi(elementId) {
+function runExternalExample(elementId) {
 	runExampleDdotNetObjectRef.invokeMethodAsync('OnRunExample', elementId)
 }
