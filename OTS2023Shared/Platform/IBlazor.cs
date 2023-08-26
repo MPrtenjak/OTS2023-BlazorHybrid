@@ -14,8 +14,6 @@ namespace OTS2023Shared.Platform
 
     Task<XDocument> ReadSlideData();
 
-    Task RunExternalExample(string exampleId);
-
-    Task CompareMainFormOfExample(string exampleId);
+    Task RunExternalExample(string exampleKey);
   }
 }

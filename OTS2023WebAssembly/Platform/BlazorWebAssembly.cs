@@ -23,16 +23,10 @@ namespace OTS2023WebAssembly.Platform
       return XDocument.Parse(stringResult);
     }
 
-    public Task RunExternalExample(string exampleId)
+    public Task RunExternalExample(string exampleKey)
     {
       return Task.CompletedTask;
     }
-
-    public Task CompareMainFormOfExample(string exampleId)
-    {
-      return Task.CompletedTask;
-    }
-
 
     private readonly HttpClient _http;
   }

@@ -30,8 +30,6 @@
 		<li>Blazor Hybrid</li>
 	</ul>
 <ul>
-
-<li>KORAK 20: Samo Blazor obrazec  (<a href="javascript: void(0);" onclick="runExternalExample('20')">Prikaži</a>)</li>
 ]]>
 		</Content>
 	</Slide>
@@ -75,7 +73,7 @@
   <li>Da razčistimo</li>  
   <ul>
     <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
-     <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
+    <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
     <li>In šele sedaj pride na vrsto Vue - <b>več znaš, več veljaš</b></li>
     <li>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack) - <b>tega pa ni več, smo v znanem okolju!</b></li>
   </ul>  
@@ -272,12 +270,53 @@
 			<![CDATA[
 <ul>
 <li>KORAK 1: Odpakiranje začetnega projekta</li>
-<li>KORAK 2: Priprava projekta za prevod</li>
-<li>KORAK 3: BUG: Če baza podatkov ne obstaja, je treba ustvariti tudi mapo</li>
-<li>KORAK 4: Inicialno polnjenje baze podatkov (<a href="javascript: void(0);" onclick="runExternalExample('4')">Prikaži</a>)</li>
-<li>KORAK 5: Nadgradnja na .NET 7.0</li>
-<li>KORAK 6: Dodajanje blazor Hybrid k projektu</li>
-<li>KORAK 7: Premik Blazor nastavitev iz obrazca v glavni program  (<a href="javascript: void(0);" onclick="runExternalExample('7')">Prikaži</a>)</li>
+<li>KORAK 2: Priprava projekta za prevod
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('2')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('2;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 2</button>)
+	</span>
+</li>
+
+<li>KORAK 3: BUG: Če baza podatkov ne obstaja, je treba ustvariti tudi mapo
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('3')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('3;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 3</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('3;prev')">2 <i class="fas fa-solid fa-less-than-equal"></i> 3</button>)
+	</span>
+</li>
+
+<li>KORAK 4: Inicialno polnjenje baze podatkov
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('4')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('4;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 4</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('4;prev')">3 <i class="fas fa-solid fa-less-than-equal"></i> 4</button>)
+	</span>
+</li>
+
+<li>KORAK 5: Nadgradnja na .NET 7.0
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('5')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('5;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 5</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('5;prev')">4 <i class="fas fa-solid fa-less-than-equal"></i> 5</button>)
+	</span>
+</li>
+
+<li>KORAK 6: Dodajanje blazor Hybrid k projektu
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('6')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('6;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 6</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('6;prev')">5 <i class="fas fa-solid fa-less-than-equal"></i> 6</button>)
+	</span>
+</li>
+
+<li>KORAK 7: Premik Blazor nastavitev iz obrazca v glavni program
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('7')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('7;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 7</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('7;prev')">6 <i class="fas fa-solid fa-less-than-equal"></i> 7</button>)
+	</span>
+</li>
+
 </ul>
 ]]>
 		</Content>
@@ -290,13 +329,62 @@
 		<Content>
 			<![CDATA[
 <ul>
-<li>KORAK 8: Globalni razred za števec</li>
-<li>KORAK 9: Sinhronizacija števcev (<a href="javascript: void(0);" onclick="runExternalExample('9')">Prikaži</a>)</li>
-<li>KORAK 10: Prikaz članov v obrazcu Blazor  (<a href="javascript: void(0);" onclick="runExternalExample('10')">Prikaži</a>)</li>
-<li>KORAK 11: Sinhronizacija podatkov med obrazci</li>
-<li>KORAK 12: Komunikacija iz obrazca Blazor nazaj v osnovno aplikacijo</li>
-<li>KORAK 13: Obravnava dogodkov EditMember in DeleteMember (<a href="javascript: void(0);" onclick="runExternalExample('13')">Prikaži</a>)</li>
-<li>KORAK 14: Dodajanje Blazor obrazca izvirnemu obrazcu</li>
+<li>KORAK 8: Globalni razred za števec
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('8')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('8;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 8</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('8;prev')">7 <i class="fas fa-solid fa-less-than-equal"></i> 8</button>)
+	</span>
+</li>
+
+<li>KORAK 9: Sinhronizacija števcev
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('9')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('9;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 9</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('9;prev')">8 <i class="fas fa-solid fa-less-than-equal"></i> 9</button>)
+	</span>
+</li>
+
+<li>KORAK 10: Prikaz članov v obrazcu Blazor
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('10')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('10;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 10</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('10;prev')">9 <i class="fas fa-solid fa-less-than-equal"></i> 10</button>)
+	</span>
+</li>
+
+<li>KORAK 11: Sinhronizacija podatkov med obrazci
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('11')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('11;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 11</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('11;prev')">10 <i class="fas fa-solid fa-less-than-equal"></i> 11</button>)
+	</span>
+</li>
+
+<li>KORAK 12: Komunikacija iz obrazca Blazor nazaj v osnovno aplikacijo
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('12')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('12;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 12</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('12;prev')">11 <i class="fas fa-solid fa-less-than-equal"></i> 12</button>)
+	</span>
+</li>
+
+<li>KORAK 13: Obravnava dogodkov EditMember in DeleteMember
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('13')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('13;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 13</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('13;prev')">12 <i class="fas fa-solid fa-less-than-equal"></i> 13</button>)
+	</span>
+</li>
+
+<li>KORAK 14: Dodajanje Blazor obrazca izvirnemu obrazcu
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('14')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('14;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 14</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('14;prev')">13 <i class="fas fa-solid fa-less-than-equal"></i> 14</button>)
+	</span>
+</li>
+
 </ul>
 ]]>
 		</Content>
@@ -309,12 +397,54 @@
 		<Content>
 			<![CDATA[
 <ul>
-<li>KORAK 15: Uporaba Bootstrap knjižnice</li>
-<li>KORAK 16: Dodajanje novega člana iz Blazor obrazca</li>
-<li>KORAK 17: Popravek podatkov člana iz Blazor obrazca</li>
-<li>KORAK 18: Čiščenje vnosnih elementov obrazca</li>
-<li>KORAK 19: Še zadnji gumb iz WinForms obrazca na Blazor  (<a href="javascript: void(0);" onclick="runExternalExample('19')">Prikaži</a>)</li>
-<li>KORAK 20: Samo Blazor obrazec  (<a href="javascript: void(0);" onclick="runExternalExample('20')">Prikaži</a>)</li>
+<li>KORAK 15: Uporaba Bootstrap knjižnice
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('15')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('15;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 15</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('15;prev')">14 <i class="fas fa-solid fa-less-than-equal"></i> 15</button>)
+	</span>
+</li>
+
+<li>KORAK 16: Dodajanje novega člana iz Blazor obrazca
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('16')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('16;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 16</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('16;prev')">15 <i class="fas fa-solid fa-less-than-equal"></i> 16</button>)
+	</span>
+</li>
+
+<li>KORAK 17: Popravek podatkov člana iz Blazor obrazca
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('17')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('17;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 17</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('17;prev')">16 <i class="fas fa-solid fa-less-than-equal"></i> 17</button>)
+	</span>
+</li>
+
+<li>KORAK 18: Čiščenje vnosnih elementov obrazca
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('18')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('18;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 18</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('18;prev')">17 <i class="fas fa-solid fa-less-than-equal"></i> 18</button>)
+	</span>
+</li>
+
+<li>KORAK 19: Še zadnji gumb iz WinForms obrazca na Blazor
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('19')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('19;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 19</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('19;prev')">18 <i class="fas fa-solid fa-less-than-equal"></i> 19</button>)
+	</span>
+</li>
+
+<li>KORAK 2: Samo Blazor obrazec  
+  <span class="hide_blazor_hybrid">
+	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('20')"><i class="fas fa-play"></i></button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('20;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 20</button>
+		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('20;prev')">19 <i class="fas fa-solid fa-less-than-equal"></i> 20</button>)
+	</span>
+</li>
+
 <li>KORAK 21: Zaključne misli</li>
 </ul>
 ]]>
@@ -334,13 +464,13 @@
   <tr>
     <td style="padding: 15px;">
       <ul>
-        <li><b>Največje težave</b>
+        <li><b>Največje težave <i>(podobno kot Blazor WebAssembly!)</i></b>
           <ol>
-            <li>Velikost aplikacije</li>
+            <li>Prenova na .NET 6.0 ali novejši</li>
             <li>Težje delo z Javascript knjižnicami</li>
           </ol>
         </li>
-        <li style="padding-top: 30px;"><b>Največje prednosti</b>
+        <li style="padding-top: 30px;"><b>Največje prednosti <i>(podobno kot Blazor WebAssembly!)</i></b>
           <ol>
             <li>C# kot statični jezik, kjer me že prevajalnik opozori na množico napak</li>
             <li>Tipizirane spremenljivke</li>
@@ -350,7 +480,7 @@
         <li style="padding-top: 15px;"><b>GitHub projekt</b>
           <ul>
             <li>Celotna prezentacija je dosegljiva preko github: <b><a href="https://github.com/MPrtenjak">https://github.com/MPrtenjak</a></b></li>
-            <li>"Živa" prezentacija: <b><a href="https://mnet.si/ots2022">https://mnet.si/ots2022</a></b></li>
+            <li>"Živa" prezentacija: <b><a href="https://mnet.si/ots2023">https://mnet.si/ots2023</a></b></li>
           </ul>
         </li>
         <li style="padding-top: 15px;"><b>GitHub pages - statične spletne strani(!)</b>
@@ -366,8 +496,7 @@
       <ul>
         <li><b>Matjaž Prtenjak</b>
           <ul>
-            <li>Freelancer, full-stack developer: <b><a href="https://mnet.si">https://mnet.si</a></b></li>
-            <li>Vodja razvoja maloprodajnega informacijskega sistema v Merkurju</li>
+            <li>Senior developer, <a href="https://www.endava.com/en/Endava">Endava</a></li>
           </ul>
         </li>
         <li style="padding-top: 15px;"><b>Kontakti</b>
