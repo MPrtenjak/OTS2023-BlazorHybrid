@@ -1,7 +1,9 @@
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OTS2023.Platform;
 using OTS2023Shared.Messages;
 using OTS2023Shared.Platform;
+using System.Reflection;
 
 namespace OTS2023
 {
@@ -13,6 +15,12 @@ namespace OTS2023
     [STAThread]
     private static void Main()
     {
+
+      var configurationBuilder = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+      var configuration = configurationBuilder.Build();
+      AppSettings = configuration.Get<AppConfiguration>();
+
       var services = new ServiceCollection();
       services.AddWindowsFormsBlazorWebView();
       services.AddBlazorWebViewDeveloperTools();
@@ -21,7 +29,7 @@ namespace OTS2023
       services.AddScoped<IBlazor, BlazorHybrid>();
       services.AddScoped(sp => new HttpClient());
 
-      serviceProvider = services.BuildServiceProvider();
+      ServiceProvider = services.BuildServiceProvider();
 
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
@@ -30,6 +38,7 @@ namespace OTS2023
       Application.Run(new MainForm());
     }
 
-    public static ServiceProvider? serviceProvider;
+    public static ServiceProvider? ServiceProvider;
+    public static AppConfiguration? AppSettings { get; set; }
   }
 }

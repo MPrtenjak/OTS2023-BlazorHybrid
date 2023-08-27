@@ -273,12 +273,7 @@
 			<![CDATA[
 <ul>
 <li>KORAK 1: Odpakiranje začetnega projekta</li>
-<li>KORAK 2: Priprava projekta za prevod
-  <span class="hide_blazor_hybrid">
-	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('2')"><i class="fas fa-play"></i></button>
-		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('2;all')">1 <i class="fas fa-solid fa-less-than-equal"></i> 2</button>)
-	</span>
-</li>
+<li>KORAK 2: Priprava projekta za prevod</li>
 
 <li>KORAK 3: BUG: Če baza podatkov ne obstaja, je treba ustvariti tudi mapo
   <span class="hide_blazor_hybrid">

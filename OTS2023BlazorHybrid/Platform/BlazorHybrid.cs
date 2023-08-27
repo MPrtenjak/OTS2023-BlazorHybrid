@@ -1,12 +1,20 @@
 ﻿
 using OTS2023Shared.Platform;
 using System.Diagnostics;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Xml.Linq;
 
 namespace OTS2023.Platform
 {
   public class BlazorHybrid : IBlazor
   {
+    public BlazorHybrid()
+    {
+      var appPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+      pathForCompares = Path.Combine(appPath, "compares");
+    }
+
     public BlazorType BlazorType => BlazorType.Hybrid;
 
     public async Task<XDocument> ReadSlideData()
@@ -39,7 +47,7 @@ namespace OTS2023.Platform
       else
       {
         if (string.Compare(elements[1], "all", ignoreCase: true) == 0)
-          compareMainFormOfExample(1, exampleId);
+          compareMainFormOfExample((exampleId < 5) ? 2 : 4, exampleId);
         if (string.Compare(elements[1], "prev", ignoreCase: true) == 0)
           compareMainFormOfExample(exampleId - 1, exampleId);
       }
@@ -49,10 +57,9 @@ namespace OTS2023.Platform
 
     public Task compareMainFormOfExample(int firstId, int secondId)
     {
-      string comparePath = Path.Combine(basePath, "compares");
-      if (!Directory.Exists(comparePath))
+      if (!Directory.Exists(pathForCompares))
       {
-        Directory.CreateDirectory(comparePath);
+        Directory.CreateDirectory(pathForCompares);
       }
 
       runGit(firstId);
@@ -62,7 +69,12 @@ namespace OTS2023.Platform
 
       void runGit(int stepId)
       {
-        string command = $"/c git show STEP{stepId}:\"Simple CRUD/Main.cs\" > compares/STEP{stepId}_Main.cs";
+        string outputFileName = Path.Combine(pathForCompares, $"STEP{stepId}_Main.cs");
+
+        if (File.Exists(outputFileName))
+          return;
+
+        string command = $"/c git show STEP{stepId}:\"Simple CRUD/Main.cs\" > {outputFileName}";
         var psi = new ProcessStartInfo
         {
           FileName = "cmd",
@@ -74,8 +86,10 @@ namespace OTS2023.Platform
 
       void runWinMerge(int firstId, int secondId)
       {
-        string command = @"C:\Program Files\WinMerge\WinMergeU.exe ";
-        string arguments = $"compares/STEP{firstId}_Main.cs compares/STEP{secondId}_Main.cs";
+        string command = Program.AppSettings!.PathToWinMerge!;
+        string outputFileName1 = Path.Combine(pathForCompares, $"STEP{firstId}_Main.cs");
+        string outputFileName2 = Path.Combine(pathForCompares, $"STEP{secondId}_Main.cs");
+        string arguments = $"{outputFileName1} {outputFileName2}";
 
         var psi = new ProcessStartInfo
         {
@@ -87,6 +101,7 @@ namespace OTS2023.Platform
       }
     }
 
-    private readonly string basePath = @"C:\Razvoj\github-hosted\WinForms_2_BlazorHybrid";
+    private readonly string basePath = Program.AppSettings!.PathToGitWithExamples!;
+    private readonly string pathForCompares = "";
   }
 }
