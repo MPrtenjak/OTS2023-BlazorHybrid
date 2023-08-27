@@ -74,7 +74,6 @@
   <ul>
     <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
     <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
-    <li>In šele sedaj pride na vrsto Vue - <b>več znaš, več veljaš</b></li>
     <li>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack) - <b>tega pa ni več, smo v znanem okolju!</b></li>
   </ul>  
   <li>Blazor</li>
