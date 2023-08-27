@@ -5,6 +5,9 @@
 		<Type>Slide</Type>
 		<Content>
 			<![CDATA[
+<div class="float-end">
+  <img src="_content/OTS2023Shared/imgs/web-qr-code.png"/>
+</div>			
 <ul>
   <li><b>Leto 2019</b></li>
 	<ul>
@@ -82,7 +85,7 @@
     <li>Razvoj v C#/.NET Core programskem jeziku (odprtokoden)</li>
     <li>Prevod v WASM (odprtokoden)</li>
   </ul>
-  <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2022">https://mnet.si/ots2022</a>  
+  <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2022-Blazor">https://mprtenjak.github.io/OTS2022-Blazor</a>  
 <ul>
 ]]>
     </Content>
@@ -225,14 +228,14 @@
 		<Content>
 			<![CDATA[
 <ul>
-  <li>Blazor Hybrid <b>ni vezan samo na WinForms</b>, temveč teče tudi v</li>
+  <li>Ena izmed najpriljubljenejših tehnologij</li>
+	<li>Veliko obstoječe kode</li>
+	<li>Hiter način razvoja programov (click & write) ==> neupoštevanje standardov</li>
+  <li><b>POMEMBNO!</b> Blazor Hybrid <b>ni vezan samo na WinForms</b>, temveč teče tudi v</li>
 	<ul>
 	  <li>WPF (<i>Windows Presentation Foundation</i>)</li>
 		<li>MAUI</li>
 	</ul>
-  <li>Ena izmed najpriljubljenejših tehnologij</li>
-	<li>Veliko obstoječe kode</li>
-	<li>Hiter način razvoja programov (click & write) ==> neupoštevanje standardov</li>
 </ul>
 ]]>
 		</Content>
