@@ -462,28 +462,22 @@
   <tr>
     <td style="padding: 15px;">
       <ul>
-        <li><b>Največje težave <i>(podobno kot Blazor WebAssembly!)</i></b>
+        <li><b>Največje težave</b>
           <ol>
             <li>Prenova na .NET 6.0 ali novejši</li>
-            <li>Težje delo z Javascript knjižnicami</li>
-          </ol>
-        </li>
-        <li style="padding-top: 30px;"><b>Največje prednosti <i>(podobno kot Blazor WebAssembly!)</i></b>
-          <ol>
-            <li>C# kot statični jezik, kjer me že prevajalnik opozori na množico napak</li>
-            <li>Tipizirane spremenljivke</li>
-            <li>Lažje razhroščevanje</li>
           </ol>
         </li>
         <li style="padding-top: 15px;"><b>GitHub projekt</b>
           <ul>
             <li>Celotna prezentacija je dosegljiva preko github: <b><a href="https://github.com/MPrtenjak">https://github.com/MPrtenjak</a></b></li>
+						<li>Aplikacija s koraki za prenovo WinForms v Blazor: <a href="https://github.com/MPrtenjak/WinForms_2_BlazorHybrid">https://github.com/MPrtenjak/WinForms_2_BlazorHybrid</a></li>
+						<li>Ta prezentacija (v Blazor Hybrid in Blazor WebAssembly): <a href="https://github.com/MPrtenjak/OTS2023-BlazorHybrid">https://github.com/MPrtenjak/OTS2023-BlazorHybrid</a></li>
           </ul>
         </li>
         <li style="padding-top: 15px;"><b>GitHub pages - statične spletne strani(!)</b>
           <ul>
             <li>"Živa" prezentacija je dosegljiva preko <b>GitHub pages</b></li>
-            <li>S pomočjo <b>GitHube actions</b> in se avtomatično prevede in naloži ob vsaki spremembi izvorne kode</li>
+            <li>S pomočjo <b>GitHube actions</b> se avtomatično prevede in naloži ob vsaki spremembi izvorne kode</li>
             <li><b><a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a></b></li>
           </ul>
         </li>        
