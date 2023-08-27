@@ -1,4 +1,4 @@
-﻿@page "/compare/{slideID:int?}"
+﻿@page "/{slideID:int?}"
 
 @implements IAsyncDisposable
 
@@ -146,7 +146,7 @@
   {
     currentSlide += offset;
     StateHasChanged();
-    JS.ChangeURL($"compare/{currentSlide + 1}");
+    JS.ChangeURL($"{currentSlide + 1}");
   }
 
   public void doPrevious()
