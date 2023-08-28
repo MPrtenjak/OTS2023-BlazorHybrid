@@ -6,10 +6,10 @@
 		<Content>
 			<![CDATA[
 <div class="float-end">
-  <img src="_content/OTS2023Shared/imgs/web-qr-code.png"/>
+  <img style="height: 15em;" src="_content/OTS2023Shared/imgs/web-qr-code.png"/>
 </div>			
 <ul>
-  <li><b>Leto 2019</b></li>
+  <li><b>Leto 20192</b></li>
 	<ul>
 	  <li>Imamo starejšega razvijalca/razvijalko, ki se mora naučiti spletnega razvoja</li>
 		<li>VUE / JavaScript</li>
@@ -44,7 +44,7 @@
     <Content>
       <![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/welcome-to-vue.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/welcome-to-vue.png" />
 </div>
 
 <ul>
@@ -69,7 +69,7 @@
     <Content>
       <![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/microsoft+blazor.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/microsoft+blazor.png" />
 </div>
 			
 <ul>
@@ -98,7 +98,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
 </div>
 			
 <ul>
@@ -120,7 +120,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
 </div>
 			
 <ul>
@@ -175,8 +175,8 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/maui.png" />
-  <img src="_content/OTS2023Shared/imgs/maui-1.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/maui.png" />
+  <img style="height: 10em" src="_content/OTS2023Shared/imgs/maui-1.png" />
 </div>
 						
 <ul>
@@ -200,7 +200,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/blazor.png" />
+  <img style="height: 20em" src="_content/OTS2023Shared/imgs/blazor.png" />
 </div>
 ]]>
 		</Content>
@@ -214,7 +214,7 @@
 		<Content>
 			<![CDATA[
 <div class="text-center">
-  <img src="_content/OTS2023Shared/imgs/blazor-hybrid.png" />
+  <img style="height: 20em" src="_content/OTS2023Shared/imgs/blazor-hybrid.png" />
 </div>
 ]]>
 		</Content>
@@ -455,52 +455,30 @@
     <Type>Slide</Type>
     <Content>
       <![CDATA[
-<div style="font-size: 120%" class="text-center alert alert-success" role="alert">
-  <b><i>Ker sem navajen MS tehnologij mi je Blazor bližje kot Javascript razvoj</i></b>
-</div>
-<table style="border-top: 2px dashed green; width: 100%;">
-  <tr>
-    <td style="padding: 15px;">
-      <ul>
-        <li><b>Največje težave</b>
-          <ol>
-            <li>Prenova na .NET 6.0 ali novejši</li>
-          </ol>
-        </li>
-        <li style="padding-top: 15px;"><b>GitHub projekt</b>
-          <ul>
-            <li>Celotna prezentacija je dosegljiva preko github: <b><a href="https://github.com/MPrtenjak">https://github.com/MPrtenjak</a></b></li>
-						<li>Aplikacija s koraki za prenovo WinForms v Blazor: <a href="https://github.com/MPrtenjak/WinForms_2_BlazorHybrid">https://github.com/MPrtenjak/WinForms_2_BlazorHybrid</a></li>
-						<li>Ta prezentacija (v Blazor Hybrid in Blazor WebAssembly): <a href="https://github.com/MPrtenjak/OTS2023-BlazorHybrid">https://github.com/MPrtenjak/OTS2023-BlazorHybrid</a></li>
-          </ul>
-        </li>
-        <li style="padding-top: 15px;"><b>GitHub pages - statične spletne strani(!)</b>
-          <ul>
-            <li>"Živa" prezentacija je dosegljiva preko <b>GitHub pages</b></li>
-            <li>S pomočjo <b>GitHube actions</b> se avtomatično prevede in naloži ob vsaki spremembi izvorne kode</li>
-            <li><b><a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a></b></li>
-          </ul>
-        </li>        
-      </ul>
-    </td>
-    <td style="border-left: 2px dashed green; padding: 15px;">
-      <ul>
-        <li><b>Matjaž Prtenjak</b>
-          <ul>
-            <li>Senior developer, <a href="https://www.endava.com/en/Endava">Endava</a></li>
-          </ul>
-        </li>
-        <li style="padding-top: 15px;"><b>Kontakti</b>
-          <ul>
-            <li>github: <b>@MPrtenjak</b></li>
-            <li>e.mail: <b>info@mnet.si</b></li>
-            <li>web: <b><a href="https://mnet.si">https://mnet.si</a></b></li>
-          </ul>
-        </li>
-      </ul>
-    </tb>
-  </tr>
-</table>  
+<ul>
+  <li><b>Največje težave</b>
+    <ol>
+      <li>Prenova na .NET 6.0 ali novejši</li>
+    </ol>
+  </li>
+  <li style="padding-top: 15px;"><b>GitHub projekt</b>
+    <ul>
+      <li>Celotna prezentacija je dosegljiva preko github: <a href="https://github.com/MPrtenjak">https://github.com/MPrtenjak</a></li>
+			<li>Aplikacija s koraki za prenovo WinForms v Blazor: <a href="https://github.com/MPrtenjak/WinForms_2_BlazorHybrid">https://github.com/MPrtenjak/WinForms_2_BlazorHybrid</a></li>
+			<li>Ta prezentacija (v Blazor Hybrid in Blazor WebAssembly): <a href="https://github.com/MPrtenjak/OTS2023-BlazorHybrid">https://github.com/MPrtenjak/OTS2023-BlazorHybrid</a></li>
+      <li>"Živa" prezentacija je dosegljiva preko: <a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a></li>
+    </ul>
+  </li>        
+  <li><b>Matjaž Prtenjak</b>
+    <ul>
+      <li><i class="fa fa-briefcase" style="color: red"></i> : Senior developer: <b><a href="https://www.endava.com/en/Endava">Endava</a></b></li>
+      <li><i class="fa fa-brands fa-github" style="color: red"></i> : <b>@MPrtenjak</b></li>
+      <li><i class="fa fa-envelope-o" style="color: red"></i> : <b>matjaz.prtenjak@endava.com</b></li>
+      <li><i class="fa fa-home" style="color: red"></i> : <b><a href="https://mnet.si">https://mnet.si</a></b></li>
+			<li><i class="fa fa-pencil" style="color: red"></i> : <b><a href="https://code-maze.com/author/mprtenjak/">code-maze</a></b></li>
+    </ul>		
+  </li>
+</ul>
 ]]>
     </Content>
   </Slide>
