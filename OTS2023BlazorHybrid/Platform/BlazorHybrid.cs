@@ -74,7 +74,7 @@ namespace OTS2023.Platform
         if (File.Exists(outputFileName))
           return;
 
-        string command = $"/c git show STEP{stepId}:\"Simple CRUD/Main.cs\" > {outputFileName}";
+        string command = $"/c git show origin/STEP{stepId}:\"Simple CRUD/Main.cs\" > {outputFileName}";
         var psi = new ProcessStartInfo
         {
           FileName = "cmd",
