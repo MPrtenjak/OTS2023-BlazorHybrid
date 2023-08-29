@@ -1,9 +1,32 @@
-﻿<div class="animate__animated animate__zoomIn">
+﻿<div class="animate__animated @animation">
   @((MarkupString)basicSlideDTO.Content)
 </div>
 
 @code {
   [Parameter] public SlideDTO? SlideData { get; set; }
+  [Parameter] public int Direction { get; set; }
 
-	private BasicSlideDTO basicSlideDTO => (BasicSlideDTO)SlideData!;
+  string animation { get; set; } = "animate__slideInRight";
+
+  private BasicSlideDTO basicSlideDTO => (BasicSlideDTO)SlideData!;
+
+  public async Task StartTimerAsync()
+  {
+    await Task.Delay(1000);
+    animation = "none";
+    StateHasChanged();
+  }
+
+  protected override async Task OnAfterRenderAsync(bool firstRender)
+  {
+    if (animation != "none")
+      await StartTimerAsync();
+  }
+
+  protected override void OnParametersSet()
+  {
+    base.OnParametersSet();
+    animation = (Direction > 0) ? "animate__slideInRight" : "animate__slideInLeft";
+    StateHasChanged();
+  }
 }

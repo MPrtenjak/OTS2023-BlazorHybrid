@@ -41,6 +41,7 @@
 
   private List<SlideDTO> slides = new List<SlideDTO>();
   private int currentSlide = 0;
+  private int direction = 1;
   private int fontSize = 100;
 
   private bool CanGoBack => (currentSlide > 0);
@@ -96,7 +97,8 @@
   {
     return new Dictionary<string, object>()
     {
-      { "SlideData", slides[currentSlide] }
+      { "SlideData", slides[currentSlide] },
+      { "Direction", direction }
     };
   }
 
@@ -145,6 +147,7 @@
   private void doPageSlide(int offset)
   {
     currentSlide += offset;
+    direction = (offset < 0) ? -1 : 1;
     StateHasChanged();
     JS.ChangeURL($"{currentSlide + 1}");
   }
