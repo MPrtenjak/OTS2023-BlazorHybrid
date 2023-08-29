@@ -24,7 +24,7 @@
 	</ul>
   <li><b>Leto 2022</b></li>
 	<ul>
-	  <li>Razvijalec/Razvijalka iz leta 2019 lahko programira v C# in vseeno razvije spletno aplikacijo</li>
+	  <li>Razvijalec / razvijalka iz leta 2019 lahko programira v C# in vseeno razvije spletno aplikacijo</li>
 		<li>Blazor / <i>predvsem</i> Blazor WebAssembly</li>
 	</ul>
   <li><b>Leto 2023</b></li>
@@ -73,13 +73,13 @@
 </div>
 			
 <ul>
-  <li>Da razčistimo</li>  
+  <li>Da razčistimo:</li>  
   <ul>
     <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
-    <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
+    <li>Potrebno se je naučiti JavaScript - <b>več znaš, več veljaš</b></li>
     <li>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack) - <b>tega pa ni več, smo v znanem okolju!</b></li>
   </ul>  
-  <li>Blazor</li>
+  <li>Blazor:</li>
   <ul>
     <li>Microsoftova tehnologija</li>
     <li>Razvoj v C#/.NET Core programskem jeziku (odprtokoden)</li>
@@ -102,10 +102,10 @@
 </div>
 			
 <ul>
-  <li>Velja enako kot lani</li>  
+  <li>Velja enako kot lani:</li>  
   <ul>
     <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
-    <li>Potrebno se je naučiti JavaScript - <b>več znaš več veljaš</b></li>
+    <li>Potrebno se je naučiti JavaScript - <b>več znaš, več veljaš</b></li>
   </ul>  
   <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a>  	
 <ul>
@@ -142,14 +142,14 @@
 <ul>
   <li><b>.NET / <i>.NET Framework</i></b></li>
 	<ul>
-	  <li>Windows- leto 2002</li>
+	  <li>Windows - leto 2002</li>
 		<li>Odgovor na Javo</li>
-		<li>Nikoli v resnici ni bil multi-platform</li>
+		<li>Nikoli v resnici ni bil <i>multi-platform</i></li>
 	</ul>
 	<li><b>.NET Core</b></li>
 	<ul>
-	  <li>Projekt MONO - multi-platform</li>
-		<li>Leto 2017 - .NET Core ==> multi-platform</li>
+	  <li>Projekt MONO - <i>multi-platform</i></li>
+		<li>Leto 2017 - .NET Core ==> <i>multi-platform</i></li>
 	</ul>
 	<li><b>.NET</b></li>
 	<ul>
@@ -228,10 +228,10 @@
 		<Content>
 			<![CDATA[
 <ul>
-  <li>Ena izmed najpriljubljenejših tehnologij</li>
+  <li>Ena izmed najbolj priljubljenih tehnologij</li>
 	<li>Veliko obstoječe kode</li>
 	<li>Hiter način razvoja programov (click & write) ==> neupoštevanje standardov</li>
-  <li><b>POMEMBNO!</b> Blazor Hybrid <b>ni vezan samo na WinForms</b>, temveč teče tudi v</li>
+  <li><b>POMEMBNO!</b> Blazor Hybrid <b>ni vezan samo na WinForms</b>, temveč teče tudi v:</li>
 	<ul>
 	  <li>WPF (<i>Windows Presentation Foundation</i>)</li>
 		<li>MAUI</li>
@@ -250,7 +250,7 @@
 <ul>
   <li>Naključno sem izbral aplikacijo na spletu (GOOGLE: <i>'winforms CRUD application sqlite'</i>)</li>
   <li>Izbrana aplikacija <a href="https://www.sourcecodester.com/tutorials/c/12232/c-simple-crud-application-sqlite.html">C# - Simple CRUD Application With SQLite</a></li>
-	<li>Prenova aplikacije</li>
+	<li>Prenova aplikacije:</li>
 	<ul>
 	  <li>21 korakov</li>
 		<li>Zelo majhne spremembe</li>
@@ -299,7 +299,7 @@
 	</span>
 </li>
 
-<li>KORAK 6: Dodajanje blazor Hybrid k projektu
+<li>KORAK 6: Dodajanje Blazor Hybrid k projektu
   <span class="hide_blazor_hybrid">
 	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('6')"><i class="fas fa-play"></i></button>
 		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('6;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 6</button>
@@ -435,7 +435,7 @@
 	</span>
 </li>
 
-<li>KORAK 2: Samo Blazor obrazec  
+<li>KORAK 20: Samo Blazor obrazec  
   <span class="hide_blazor_hybrid">
 	  (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('20')"><i class="fas fa-play"></i></button>
 		<button type="button" class="btn btn-outline-info" onclick="runExternalExample('20;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 20</button>
@@ -470,7 +470,7 @@
   </li>        
   <li><b>Matjaž Prtenjak</b>
     <ul>
-      <li><i class="fa fa-briefcase" style="color: red"></i> : Senior developer: <b><a href="https://www.endava.com/en/Endava">Endava</a></b></li>
+      <li><i class="fa fa-briefcase" style="color: red"></i> : <b>Senior developer: <a href="https://www.endava.com/en/Endava">Endava</a></b></li>
       <li><i class="fa fa-brands fa-github" style="color: red"></i> : <b>@MPrtenjak</b></li>
       <li><i class="fa fa-envelope-o" style="color: red"></i> : <b>matjaz.prtenjak@endava.com</b></li>
       <li><i class="fa fa-home" style="color: red"></i> : <b><a href="https://mnet.si">https://mnet.si</a></b></li>
