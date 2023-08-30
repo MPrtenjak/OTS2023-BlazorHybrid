@@ -33,9 +33,9 @@
       // 
       // blazorWebView1
       // 
-      blazorWebView1.Location = new Point(117, 82);
+      blazorWebView1.Location = new Point(12, 12);
       blazorWebView1.Name = "blazorWebView1";
-      blazorWebView1.Size = new Size(191, 79);
+      blazorWebView1.Size = new Size(567, 414);
       blazorWebView1.TabIndex = 0;
       blazorWebView1.Text = "blazorWebView1";
       // 
