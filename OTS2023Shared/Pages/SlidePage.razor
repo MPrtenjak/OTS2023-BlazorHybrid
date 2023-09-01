@@ -138,6 +138,7 @@
 
   private async Task changeFontSize(int delta)
   {
+    direction = 0;
     fontSize += delta;
     await JS.SetInLocalStorage("fontSize", fontSize.ToString());
     messageBroker.NotifyZoomChanged(fontSize);

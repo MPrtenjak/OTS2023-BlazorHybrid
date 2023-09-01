@@ -19,14 +19,15 @@
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
-    if (animation != "none")
+    if ((Direction != 0) && (animation != "none"))
       await StartTimerAsync();
   }
 
   protected override void OnParametersSet()
   {
     base.OnParametersSet();
-    animation = (Direction > 0) ? "animate__slideInRight" : "animate__slideInLeft";
+    animation = (Direction == 0) ? "none" 
+      : (Direction > 0) ? "animate__slideInRight" : "animate__slideInLeft";
     StateHasChanged();
   }
 }
