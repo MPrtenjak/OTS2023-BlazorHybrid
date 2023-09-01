@@ -15,7 +15,7 @@
 
 @if (slides.Count > 0)
 {
-  <div class="d-flex justify-content-between flex-wrap">
+  <div class="d-flex justify-content-between flex-wrap animate__animated @captionAnimation">
     <span style="font-size: 75%; font-weight: 500;color: red;" class="me-2">
       [@(currentSlide + 1)].
     </span>
@@ -33,7 +33,9 @@
   </div>
   <hr />
 
-  <DynamicComponent Type="@slides[currentSlide].SlideComponent" Parameters="@slideParameters()" />
+  <div class="animate__animated @slideAnimation">
+    <DynamicComponent Type="@slides[currentSlide].SlideComponent" Parameters="@slideParameters()" />
+  </div>
 }
 
 @code {
@@ -53,6 +55,9 @@
 
   private GestureEventInterop? customEventInterop { get; set; }
   private RunExampleEventInterop? runExampleEventInterop { get; set; }
+
+  string slideAnimation { get; set; } = "animate__slideInRight";
+  string captionAnimation { get; set; } = "animate__slideInDown";
 
   protected override async Task OnInitializedAsync()
   {
@@ -98,12 +103,13 @@
     return new Dictionary<string, object>()
     {
       { "SlideData", slides[currentSlide] },
-      { "Direction", direction }
     };
   }
 
   protected override async Task OnAfterRenderAsync(bool firstRender)
   {
+    await base.OnAfterRenderAsync(firstRender);
+
     if (!firstRender)
       return;
 
@@ -112,8 +118,6 @@
 
     runExampleEventInterop = new(JS);
     await runExampleEventInterop.SetupRunExampleEventCallback(args => handleRunExample(args));
-
-    await base.OnAfterRenderAsync(firstRender);
   }
 
   public async ValueTask DisposeAsync()
@@ -151,6 +155,19 @@
     direction = (offset < 0) ? -1 : 1;
     StateHasChanged();
     JS.ChangeURL($"{currentSlide + 1}");
+
+    slideAnimation = (direction > 0) ? "animate__slideInRight" : "animate__slideInLeft";
+    captionAnimation = (direction > 0) ? "animate__slideInDown" : "animate__slideInUp";
+    Task.Run(async () =>
+    {
+      await Task.Delay(1000);
+      await InvokeAsync(() =>
+      {
+        slideAnimation = "none";
+        captionAnimation = "none";
+        StateHasChanged();
+      });
+    });
   }
 
   public void doPrevious()
