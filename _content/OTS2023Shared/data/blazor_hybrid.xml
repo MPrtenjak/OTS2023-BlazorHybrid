@@ -12,7 +12,8 @@
   <li><b>Leto 2019</b></li>
 	<ul>
 	  <li>Imamo starejšega razvijalca/razvijalko, ki se mora naučiti spletnega razvoja</li>
-		<li>VUE / JavaScript</li>
+		<li style="color: red;"><b>VUE / JavaScript</b></li>
+	  <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2019">https://mnet.si/ots2019</a>
 	</ul>
   <li><b>Leto 2020</b></li>
 	<ul>
@@ -20,94 +21,20 @@
 	</ul>
   <li><b>Leto 2021</b></li>
 	<ul>
-	  <li>Še vedno imamo korono</li>
+	  <li>Še vedno imamo koronco</li>
 	</ul>
   <li><b>Leto 2022</b></li>
 	<ul>
 	  <li>Razvijalec / razvijalka iz leta 2019 lahko programira v C# in vseeno razvije spletno aplikacijo</li>
-		<li>Blazor / <i>predvsem</i> Blazor WebAssembly</li>
+		<li style="color: red;"><b>Blazor</b> / <i>predvsem</i> Blazor WebAssembly</li>
+    <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2022-Blazor">https://mprtenjak.github.io/OTS2022-Blazor</a>  
 	</ul>
   <li><b>Leto 2023</b></li>
 	<ul>
 	  <li>Razvijalci (<i>iz prejšnjih let</i>) morajo prenoviti obstoječo veliko WinForms aplikacijo</li>
-		<li>Blazor Hybrid</li>
+		<li style="color: red;"><b>Blazor Hybrid</b></li>
+	  <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a>  	
 	</ul>
-<ul>
-]]>
-		</Content>
-	</Slide>
-	
-	<!-- ************************************************************************************************ -->
-  <Slide>
-    <Caption>OTS 2019 - VUE</Caption>
-    <Type>Slide</Type>
-    <Content>
-      <![CDATA[
-<div class="text-center">
-  <img style="height: 10em" src="_content/OTS2023Shared/imgs/welcome-to-vue.png" />
-</div>
-
-<ul>
-  <li>Kako razvijati v VUE/NUXT, če si navajen/a objektnih jezikov, kot so C++, C# ali JAVA?</li>
-  <li>Zaključki:</li>
-  <ul>
-    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS</li>
-    <li>Potrebno se je naučiti JavaScript</li>
-    <li>In šele sedaj pride na vrsto Vue</li>
-    <li><b>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack)</b></li>
-  </ul>
-  <li style="font-size: 120%">Prezentacija na <a href="https://mnet.si/ots2019">https://mnet.si/ots2019</a>
-<ul>
-]]>
-    </Content>
-  </Slide>
-
-  <!-- ************************************************************************************************ -->
-  <Slide>
-    <Caption>OTS 2022 - BLAZOR</Caption>
-    <Type>Slide</Type>
-    <Content>
-      <![CDATA[
-<div class="text-center">
-  <img style="height: 10em" src="_content/OTS2023Shared/imgs/microsoft+blazor.png" />
-</div>
-			
-<ul>
-  <li>Da razčistimo:</li>  
-  <ul>
-    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
-    <li>Potrebno se je naučiti JavaScript - <b>več znaš, več veljaš</b></li>
-    <li>Prava težava je okolje, ki je povezano z razvojem Javascript (node / npm (yarn) / webpack) - <b>tega pa ni več, smo v znanem okolju!</b></li>
-  </ul>  
-  <li>Blazor:</li>
-  <ul>
-    <li>Microsoftova tehnologija</li>
-    <li>Razvoj v C#/.NET Core programskem jeziku (odprtokoden)</li>
-    <li>Prevod v WASM (odprtokoden)</li>
-  </ul>
-  <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2022-Blazor">https://mprtenjak.github.io/OTS2022-Blazor</a>  
-<ul>
-]]>
-    </Content>
-  </Slide>
-
-	<!-- ************************************************************************************************ -->
-	<Slide>
-		<Caption>OTS 2023 - BLAZOR HYBRID</Caption>
-		<Type>Slide</Type>
-		<Content>
-			<![CDATA[
-<div class="text-center">
-  <img style="height: 10em" src="_content/OTS2023Shared/imgs/NET-MAUI-Blazor-App.png" />
-</div>
-			
-<ul>
-  <li>Velja enako kot lani:</li>  
-  <ul>
-    <li>Naučiti se morate spletnega opisnega jezika HTML v povezavi s CSS - <b>še vedno velja</b></li>
-    <li>Potrebno se je naučiti JavaScript - <b>več znaš, več veljaš</b></li>
-  </ul>  
-  <li style="font-size: 120%">Prezentacija na <a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a>  	
 <ul>
 ]]>
 		</Content>
@@ -125,8 +52,8 @@
 			
 <ul>
   <li>.NET in različna poimenovanja...</li>
-	<li>Blazor...</li>
 	<li>MAUI...</li>
+	<li>Blazor...</li>
 	<li>in končno Blazor Hybrid!</li>
 </ul>
 ]]>
@@ -470,7 +397,7 @@
   </li>        
   <li><b>Matjaž Prtenjak</b>
     <ul>
-      <li><i class="fa fa-briefcase" style="color: red"></i> : <b>Senior developer: <a href="https://www.endava.com/en/Endava">Endava</a></b></li>
+      <li><i class="fa fa-briefcase" style="color: red"></i> : <b><a href="https://www.endava.com/en/Endava">Endava</a></b></li>
       <li><i class="fa fa-brands fa-github" style="color: red"></i> : <b>@MPrtenjak</b></li>
       <li><i class="fa fa-envelope-o" style="color: red"></i> : <b>matjaz.prtenjak@endava.com</b></li>
       <li><i class="fa fa-home" style="color: red"></i> : <b><a href="https://mnet.si">https://mnet.si</a></b></li>
@@ -481,4 +408,18 @@
 ]]>
     </Content>
   </Slide>
+
+	<!-- ************************************************************************************************ -->
+	<Slide>
+		<Caption>Kaj je Blazor Hybrid?</Caption>
+		<Type>Slide</Type>
+		<Content>
+			<![CDATA[
+<div class="text-center">
+  <img src="_content/OTS2023Shared/imgs/endava.png" />
+</div>
+]]>
+		</Content>
+	</Slide>
+
 </Slides>
