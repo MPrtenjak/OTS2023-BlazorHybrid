@@ -1,5 +1,6 @@
 ﻿
 using OTS2023Shared.Platform;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -17,14 +18,28 @@ namespace OTS2023.Platform
 
     public BlazorType BlazorType => BlazorType.Hybrid;
 
-    public async Task<XDocument> ReadSlideData()
+    public async Task<Dictionary<Language, XDocument>> ReadSlideData()
     {
-      string fileName = "blazor_hybrid.xml";
       string filePath = "data";
 
-      var xmlDataFile = $"wwwroot/{filePath}/{fileName}";
-      using var stream = File.OpenRead(xmlDataFile);
-      return await XDocument.LoadAsync(stream, LoadOptions.None, CancellationToken.None);
+      Dictionary<Language, string> languageFiles = new()
+      {
+        { Language.Si, "blazor_hybrid.xml" },
+        { Language.En, "blazor_hybrid_en.xml" },
+      };
+
+      Dictionary<Language, XDocument> result = new();
+
+      foreach (var languageFile in languageFiles)
+      {
+        var xmlDataFile = $"wwwroot/{filePath}/{languageFile.Value}";
+        using var stream = File.OpenRead(xmlDataFile);
+
+        var slides = await XDocument.LoadAsync(stream, LoadOptions.None, CancellationToken.None);
+        result.Add(languageFile.Key, slides);
+      }
+
+      return result;
     }
 
     public Task RunExternalExample(string exampleKey)

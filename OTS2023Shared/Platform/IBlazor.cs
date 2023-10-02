@@ -8,11 +8,17 @@ namespace OTS2023Shared.Platform
     Hybrid
   }
 
+  public enum Language
+  {
+    Si,
+    En,
+  }
+
   public interface IBlazor
   {
     BlazorType BlazorType { get; }
 
-    Task<XDocument> ReadSlideData();
+    Task<Dictionary<Language, XDocument>> ReadSlideData();
 
     Task RunExternalExample(string exampleKey);
   }

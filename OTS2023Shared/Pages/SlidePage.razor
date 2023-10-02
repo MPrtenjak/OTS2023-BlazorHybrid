@@ -63,7 +63,7 @@
   {
     var xmlResult = await blazorType.ReadSlideData();
 
-    foreach (var slide in xmlResult.XPathSelectElements("//Slide"))
+    foreach (var slide in xmlResult[Language.Si].XPathSelectElements("//Slide"))
       slides.Add(Slide.FromXElement(slide));
 
     currentSlide = (slideID.HasValue && slideID.Value >= 1 && slideID.Value <= slides.Count)
