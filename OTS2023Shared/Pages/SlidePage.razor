@@ -41,7 +41,8 @@
 @code {
   [Parameter] public int? slideID { get; set; }
 
-  private List<SlideDTO> slides = new List<SlideDTO>();
+  // private List<SlideDTO> slides = new List<SlideDTO>();
+  private SlideCollection slides = new SlideCollection();
   private int currentSlide = 0;
   private int direction = 1;
   private int fontSize = 100;
@@ -62,9 +63,8 @@
   protected override async Task OnInitializedAsync()
   {
     var xmlResult = await blazorType.ReadSlideData();
-
-    foreach (var slide in xmlResult[Language.Si].XPathSelectElements("//Slide"))
-      slides.Add(Slide.FromXElement(slide));
+    slides.Add(xmlResult);
+    slides.CurrentLanguage = Language.En;
 
     currentSlide = (slideID.HasValue && slideID.Value >= 1 && slideID.Value <= slides.Count)
       ? (slideID.Value - 1) : 0;

@@ -62,15 +62,15 @@ namespace OTS2023.Platform
       else
       {
         if (string.Compare(elements[1], "all", ignoreCase: true) == 0)
-          compareMainFormOfExample((exampleId < 5) ? 2 : 4, exampleId);
+          CompareMainFormOfExample((exampleId < 5) ? 2 : 4, exampleId);
         if (string.Compare(elements[1], "prev", ignoreCase: true) == 0)
-          compareMainFormOfExample(exampleId - 1, exampleId);
+          CompareMainFormOfExample(exampleId - 1, exampleId);
       }
 
       return Task.CompletedTask;
     }
 
-    public Task compareMainFormOfExample(int firstId, int secondId)
+    public Task CompareMainFormOfExample(int firstId, int secondId)
     {
       if (!Directory.Exists(pathForCompares))
       {
