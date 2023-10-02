@@ -23,6 +23,11 @@
       @slides[currentSlide].Caption
     </span>
     <span>
+      <select class="btn btn-primary me-5" @bind="slides.CurrentLanguage">
+        <option Value="Si">SLO</option>
+        <option Value="En">EN</option>
+      </select>
+
       <button id="zoomOut" class="btn btn-primary me-2" @onclick="zoomOut"><span class="oi oi-zoom-out"></span></button>
       <button id="percent" class="btn btn-primary me-2">@fontSizePercent</button>
       <button id="zoomIn" class="btn btn-primary me-5" @onclick="zoomIn"><span class="oi oi-zoom-in"></span></button>
@@ -41,11 +46,12 @@
 @code {
   [Parameter] public int? slideID { get; set; }
 
-  // private List<SlideDTO> slides = new List<SlideDTO>();
   private SlideCollection slides = new SlideCollection();
   private int currentSlide = 0;
   private int direction = 1;
   private int fontSize = 100;
+
+  // private Language SelectedLanguage { get; set; } = Language.Si;
 
   private bool CanGoBack => (currentSlide > 0);
   private bool CanGoForward => (currentSlide < slides.Count - 1);
