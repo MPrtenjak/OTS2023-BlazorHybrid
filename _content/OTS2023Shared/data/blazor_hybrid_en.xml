@@ -378,62 +378,34 @@
 
 	<!-- ************************************************************************************************ -->
 	<Slide>
-		<Caption>Demonstration Application - Description of Steps III</Caption>
+		<Caption>Conclusion / Questions and Answers</Caption>
 		<Type>Slide</Type>
 		<Content>
 			<![CDATA[
+<ul>
+  <li><b>Biggest challenges</b>
+    <ol>
+      <li>Migrating to .NET 6.0 or later</li>
+    </ol>
+  </li>
+  <li style="padding-top: 15px;"><b>GitHub project</b>
     <ul>
-      <li>STEP 15: Using the Bootstrap library
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('15')"><i class="fas fa-play"></i> <i class="fas fa-bullseye" style="color: red; font-size: 50%;"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('15;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 15</button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('15;prev')">14 <i class="fas fa-solid fa-less-than-equal"></i> 15</button>)
-        </span>
-      </li>
-
-      <li>STEP 16: Adding a new member from the Blazor form
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('16')"><i class="fas fa-play"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('16;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 16</button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('16;prev')">15 <i class="fas fa-solid fa-less-than-equal"></i> 16</button>)
-        </span>
-      </li>
-
-      <li>STEP 17: Editing member data from the Blazor form
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('17')"><i class="fas fa-play"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('17;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 17</button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('17;prev')">16 <i class="fas fa-solid fa-less-than-equal"></i> 17</button>)
-        </span>
-      </li>
-
-      <li>STEP 18: Clearing form input elements
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('18')"><i class="fas fa-play"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('18;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 18</button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('18;prev')">17 <i class="fas fa-solid fa-less-than-equal"></i> 18</button>)
-        </span>
-      </li>
-
-      <li>STEP 19: The final button from the WinForms form to Blazor
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('19')"><i class="fas fa-play"></i> <i class="fas fa-bullseye" style="color: red; font-size: 50%;"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('19;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 19</button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('19;prev')">18 <i class="fas fa-solid fa-less-than-equal"></i> 19</button>)
-        </span>
-      </li>
-
-      <li>STEP 20: Blazor form only
-        <span class="hide_blazor_hybrid">
-          (<button type="button" class="btn btn-outline-primary" onclick="runExternalExample('20')"><i class="fas fa-play"></i> <i class="fas fa-bullseye" style="color: red; font-size: 50%;"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('20;all')">4 <i class="fas fa-solid fa-less-than-equal"></i> 20 <i class="fas fa-bullseye" style="color: red; font-size: 50%;"></i></button>
-            <button type="button" class="btn btn-outline-info" onclick="runExternalExample('20;prev')">19 <i class="fas fa-solid fa-less-than-equal"></i> 20</button>)
-        </span>
-      </li>
-
-      <li>STEP 21: Closing thoughts</li>
+      <li>Application with steps to migrate WinForms to Blazor: <a href="https://github.com/MPrtenjak/WinForms_2_BlazorHybrid">https://github.com/MPrtenjak/WinForms_2_BlazorHybrid</a></li>
+      <li>This presentation (in Blazor Hybrid and Blazor WebAssembly): <a href="https://github.com/MPrtenjak/OTS2023-BlazorHybrid">https://github.com/MPrtenjak/OTS2023-BlazorHybrid</a></li>
+      <li>The "live" presentation is available at: <a href="https://mprtenjak.github.io/OTS2023-BlazorHybrid">https://mprtenjak.github.io/OTS2023-BlazorHybrid</a></li>
     </ul>
-    ]]>
+  </li>
+  <li><b>Matjaž Prtenjak</b>
+    <ul>
+      <li><i class="fa fa-briefcase" style="color: red"></i> : <b><a href="https://www.endava.com/en/Endava">Endava</a></b></li>
+      <li><i class="fa fa-brands fa-github" style="color: red"></i> : <b>@MPrtenjak</b></li>
+      <li><i class="fa fa-envelope-o" style="color: red"></i> : <b>matjaz.prtenjak@endava.com</b></li>
+      <li><i class="fa fa-home" style="color: red"></i> : <b><a href="https://mnet.si">https://mnet.si</a></b></li>
+			<li><i class="fa fa-pencil" style="color: red"></i> : <b><a href="https://code-maze.com/author/mprtenjak/">code-maze</a></b></li>
+    </ul>		
+  </li>
+</ul>
+]]>
 		</Content>
 	</Slide>
 
